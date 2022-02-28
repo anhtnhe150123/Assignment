@@ -30,7 +30,7 @@ public class EmployeeDAO {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 Employee employee = Employee.builder()
-                        .id(rs.getInt(1))
+                        .id(rs.getString(1))
                         .name(rs.getString(2))
                         .dateBirth(rs.getString(3))
                         .gender(rs.getString(4))

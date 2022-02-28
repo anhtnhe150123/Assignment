@@ -17,8 +17,8 @@
         <servlet-class>controller.DeleteController</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>ChartController</servlet-name>
-        <servlet-class>controller.ChartController</servlet-class>
+        <servlet-name>CreateController</servlet-name>
+        <servlet-class>controller.CreateController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>HomeController</servlet-name>
@@ -37,8 +37,8 @@
         <url-pattern>/delete</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>ChartController</servlet-name>
-        <url-pattern>/chart</url-pattern>
+        <servlet-name>CreateController</servlet-name>
+        <url-pattern>/create</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

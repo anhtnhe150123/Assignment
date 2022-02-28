@@ -100,10 +100,7 @@
                                 </nav>
                             </div>
                             <div class="sb-sidenav-menu-heading">Addons</div>
-                            <a class="nav-link" href="charts.html">
-                                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                                Charts
-                            </a>
+
                             <a class="nav-link" href="tables.jsp">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 Tables
@@ -124,7 +121,14 @@
                             <li class="breadcrumb-item"><a href="index.jsp">Dashboard</a></li>
                             <li class="breadcrumb-item active">Tables</li>
                         </ol>
-                   
+                        <ol class="breadcrumb mb-4">
+                            <li class="breadcrumb-item">
+                                <a href="create" class="btn btn-dark btn-md">
+                                    <i class="fa fa-user-plus"></i> Create new Employee
+                                </a>
+                            </li>
+                        </ol>
+
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table me-1"></i>
@@ -134,34 +138,40 @@
                                 <table id="datatablesSimple">
                                     <thead>
                                         <tr>
-                                            <th>Name</th>
+                                            <th>Employee ID</th>
+                                            <th>Full name</th>
+                                            <th>Date of birth</th>
+                                            <th>Gender</th>
                                             <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
                                             <th>Start date</th>
-                                            <th>Salary</th>
+                                            <th>Option</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
-                                            <th>Name</th>
+                                            <th>Employee ID</th>
+                                            <th>Full name</th>
+                                            <th>Date of birth</th>
+                                            <th>Gender</th>
                                             <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>
+                                            <th>Option</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
-                                        <c:forEach items="${listEmployee}" var="e"> 
-                                        <tr>
-                                            <td>${e.id}</td>
-                                            <td>${e.name}</td>
-                                            <td>${e.dateBirth}</td>
-                                            <td>${e.gender}</td>
-                                            <td>${e.position}</td>
-                                            <td>${e.startDate}</td>
-                                        </tr>
+                                        <c:forEach items="${listEmployees}" var="E"> 
+                                            <tr>
+                                                <td>${E.id}</td>
+                                                <td>${E.name}</td>
+                                                <td>${E.dateBirth}</td>
+                                                <td>${E.gender}</td>
+                                                <td>${E.position}</td>
+                                                <td>${E.startDate}</td>              
+                                                <td><a href="update?id=${E.id}" style="margin-left: 5px;">
+                                                        <i class="fa fa-edit" style="font-size:20px"></i>
+                                                    </a> <a href="delete?id=${E.id}" style="margin-left: 10px;">
+                                                        <i class="fa fa-trash" style="font-size:20px"></i>
+                                                    </a></td>
+                                            </tr>
                                         </c:forEach>
                                     </tbody>
                                 </table>
@@ -189,4 +199,3 @@
         <script src="js/datatables-simple-demo.js"></script>
     </body>
 </html>
-

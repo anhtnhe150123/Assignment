@@ -20,7 +20,7 @@ import lombok.ToString;
 @Setter
 @ToString
 public class Employee {
-    private int id;
+    private String id;
     private String name;
     private String dateBirth;
     private String gender;

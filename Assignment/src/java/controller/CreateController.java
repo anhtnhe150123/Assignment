@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Apple
  */
-public class ChartController extends HttpServlet {
+public class CreateController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,10 +35,10 @@ public class ChartController extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ChartController</title>");            
+            out.println("<title>Servlet CreateController</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ChartController at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet CreateController at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
