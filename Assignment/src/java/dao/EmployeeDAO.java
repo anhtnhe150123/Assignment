@@ -7,6 +7,7 @@ package dao;
 
 import context.DBContext;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -29,13 +30,13 @@ public class EmployeeDAO {
             PreparedStatement ps = conn.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                Employee employee = Employee.builder()
-                        .id(rs.getString(1))
-                        .name(rs.getString(2))
-                        .dateBirth(rs.getString(3))
-                        .gender(rs.getString(4))
-                        .position(rs.getString(5))
-                        .startDate(rs.getString(6)).build();
+                Employee employee = new Employee();
+                employee.setId(rs.getString(1));
+                employee.setName(rs.getString(2));
+                employee.setDob(rs.getDate(3));
+                employee.setGender(rs.getString(4));
+                employee.setPosition(rs.getString(5));
+                employee.setStartDate(rs.getDate(6));
                 list.add(employee);
             }
         } catch (Exception ex) {
@@ -43,5 +44,37 @@ public class EmployeeDAO {
         }
         return list;
     }
-    
-}
+
+    public int create(Employee employee) {
+        try {
+            String sql = "INSERT INTO [AssignmentDB].[dbo].[EMPLOYEE]\n"
+                    + "           ([em_id]\n"
+                    + "           ,[full_name]\n"
+                    + "           ,[birth_date]\n"
+                    + "           ,[gender]\n"
+                    + "           ,[position]\n"
+                    + "           ,[start_date])\n"
+                    + "     VALUES\n"
+                    + "           (?,?,?,?,?,?)";
+
+            //Mở kết nối
+            Connection conn = new DBContext().getConnection();
+
+            //Đưa câu lệnh sql vào prepare để chuẩn bị thực thi
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, employee.getId());
+            ps.setString(2, employee.getName());
+            ps.setDate(3, employee.getDob());
+            ps.setString(4, employee.getGender());
+            ps.setString(5, employee.getPosition());
+            ps.setDate(6, employee.getStartDate());
+
+            //Thực thi và trả về kết quả
+            ps.executeUpdate();
+
+        } catch (Exception ex) {
+            Logger.getLogger(EmployeeDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return 1;
+    }
+    }

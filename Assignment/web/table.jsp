@@ -118,7 +118,7 @@
                     <div class="container-fluid px-4">
                         <h1 class="mt-4">Tables</h1>
                         <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item"><a href="index.jsp">Dashboard</a></li>
+                            <li class="breadcrumb-item"><a href="home">Dashboard</a></li>
                             <li class="breadcrumb-item active">Tables</li>
                         </ol>
                         <ol class="breadcrumb mb-4">
@@ -162,7 +162,7 @@
                                             <tr>
                                                 <td>${E.id}</td>
                                                 <td>${E.name}</td>
-                                                <td>${E.dateBirth}</td>
+                                                <td>${E.dob}</td>
                                                 <td>${E.gender}</td>
                                                 <td>${E.position}</td>
                                                 <td>${E.startDate}</td>              

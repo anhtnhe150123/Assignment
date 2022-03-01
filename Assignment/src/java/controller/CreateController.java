@@ -5,12 +5,16 @@
  */
 package controller;
 
+import dao.EmployeeDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Date;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Employee;
 
 /**
  *
@@ -27,23 +31,7 @@ public class CreateController extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet CreateController</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet CreateController at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
-    }
-
+    
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -56,7 +44,10 @@ public class CreateController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        List<Employee> listEmployees = new EmployeeDAO().getAllEmployees();
+        
+        request.setAttribute("listEmployees", listEmployees);
+        request.getRequestDispatcher("create.jsp").forward(request, response);
     }
 
     /**
@@ -70,7 +61,19 @@ public class CreateController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        String id = request.getParameter("id");
+        String name = request.getParameter("name");
+        Date dob = Date.valueOf(request.getParameter("dob"));
+        String gender = request.getParameter("gender");
+        String position = request.getParameter("position");
+        Date startDate = Date.valueOf(request.getParameter("startdate"));
+        
+        Employee employee = new Employee(id, name, dob, gender, position, startDate);
+        EmployeeDAO employeeDAO = new EmployeeDAO();
+        employeeDAO.create(employee);
+         response.sendRedirect("table");
+        
+
     }
 
     /**
