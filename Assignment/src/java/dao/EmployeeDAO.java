@@ -45,7 +45,7 @@ public class EmployeeDAO {
         return list;
     }
 
-    public int create(Employee employee) {
+    public void create(Employee employee) {
         try {
             String sql = "INSERT INTO [AssignmentDB].[dbo].[EMPLOYEE]\n"
                     + "           ([em_id]\n"
@@ -75,6 +75,50 @@ public class EmployeeDAO {
         } catch (Exception ex) {
             Logger.getLogger(EmployeeDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return 1;
     }
+
+    public static void delete(String id) {
+        try {
+            String sql = "DELETE FROM [dbo].[EMPLOYEE]\n"
+                    + "      WHERE em_id = ?";
+
+            //Mở kết nối
+            Connection conn = new DBContext().getConnection();
+
+            //Đưa câu lệnh sql vào prepare để chuẩn bị thực thi
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, id);
+
+            //Thực thi và trả về kết quả
+            ps.executeUpdate();
+
+        } catch (Exception ex) {
+            Logger.getLogger(EmployeeDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
+
+    public Employee getEmployeeByID(String id) {
+        try {
+            String sql = "select * from EMPLOYEE\n"
+                    + "where em_id=?";
+
+            //Mở kết nối
+            Connection conn = new DBContext().getConnection();
+
+            //Đưa câu lệnh sql vào prepare để chuẩn bị thực thi
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, id);
+
+            //Thực thi và trả về kết quả
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Employee employee = new Employee(rs.getString(1), rs.getString(2), rs.getDate(3), rs.getString(4), rs.getString(5), rs.getDate(7));
+                return employee;
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(EmployeeDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+
+}

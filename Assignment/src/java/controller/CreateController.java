@@ -44,8 +44,7 @@ public class CreateController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        List<Employee> listEmployees = new EmployeeDAO().getAllEmployees();
-        
+        List<Employee> listEmployees = new EmployeeDAO().getAllEmployees();    
         request.setAttribute("listEmployees", listEmployees);
         request.getRequestDispatcher("create.jsp").forward(request, response);
     }

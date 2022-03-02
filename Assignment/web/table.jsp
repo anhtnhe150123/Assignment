@@ -168,9 +168,11 @@
                                                 <td>${E.startDate}</td>              
                                                 <td><a href="update?id=${E.id}" style="margin-left: 5px;">
                                                         <i class="fa fa-edit" style="font-size:20px"></i>
-                                                    </a> <a href="delete?id=${E.id}" style="margin-left: 10px;">
+                                                    </a> 
+                                                    <a href="delete?id=${E.id}" style="margin-left: 10px;">
                                                         <i class="fa fa-trash" style="font-size:20px"></i>
-                                                    </a></td>
+                                                    </a>
+                                                </td>
                                             </tr>
                                         </c:forEach>
                                     </tbody>
