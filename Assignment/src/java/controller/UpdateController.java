@@ -6,6 +6,7 @@
 package controller;
 
 import dao.EmployeeDAO;
+import dao.PositionDAO;
 import java.io.IOException;
 import java.sql.Date;
 import java.util.List;
@@ -14,6 +15,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Employee;
+import model.Position;
 
 /**
  *
@@ -21,15 +23,6 @@ import model.Employee;
  */
 public class UpdateController extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -43,12 +36,12 @@ public class UpdateController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String id = request.getParameter("id");
-        EmployeeDAO employeeDAO = new EmployeeDAO();
-        Employee employee = employeeDAO.getEmployeeByID(id);
-        List<Employee> listEmployees = new EmployeeDAO().getAllEmployees();    
-        request.setAttribute("listEmployees", listEmployees);    
+        Employee employee = new EmployeeDAO().getEmployeeByID(id);
+        List<Position> listPositions = new PositionDAO().getAllPosition();
+
         request.setAttribute("employee", employee);
-        request.getRequestDispatcher("test.jsp").forward(request, response);
+        request.setAttribute("listPositions", listPositions);
+        request.getRequestDispatcher("update.jsp").forward(request, response);
     }
 
     /**
@@ -62,14 +55,14 @@ public class UpdateController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //Xử ly update student
+        
         String id = request.getParameter("id");
         String name = request.getParameter("name");
         Date dob = Date.valueOf(request.getParameter("dob"));
         String gender = request.getParameter("gender");
         String position = request.getParameter("position");
         Date startDate = Date.valueOf(request.getParameter("startdate"));
-        
+
         Employee employee = new Employee(id, name, dob, gender, position, startDate);
         new EmployeeDAO().update(employee);
         response.sendRedirect("table");

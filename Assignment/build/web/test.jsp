@@ -1,9 +1,10 @@
 <%-- 
     Document   : test
-    Created on : Mar 3, 2022, 1:03:26 AM
+    Created on : Mar 3, 2022, 10:40:22 PM
     Author     : Apple
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -51,8 +52,9 @@
                                         <label class="col-lg-3 control-label">Gender:</label>
                                         <div class="col-lg-8">
                                             <select name="gender" >
-                                                <option ${emloyee.gender == Male ?"selected":""} value="Male">Male</option>
-                                                <option ${emloyee.gender == Female ?"selected":""} value="Female">Female</option>
+                                                <c:forEach items="${listEmployees}" var="E">
+                                                <option ${emloyee.gender == E.gender ?"selected":""} value="${emloyee.gender}">${E.gender}</option>
+                                                </c:forEach>
                                             </select>
                                         </div>
                                     </div>

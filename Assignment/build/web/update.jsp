@@ -4,6 +4,7 @@
     Author     : Apple
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html> 
 <html lang="en">
@@ -152,8 +153,8 @@
                                         <label class="col-lg-3 control-label">Gender:</label>
                                         <div class="col-lg-8">
                                             <select name="gender" >
-                                                <option ${emloyee.gender == Male ?"selected":""} value="Male">Male</option>
-                                                <option ${emloyee.gender == Female ?"selected":""} value="Female">Female</option>
+                                                <option ${emloyee.gender.equal('Male') ?"selected":""} value="${emloyee.gender}">Male</option>
+                                                <option ${emloyee.gender.equal('Female') ?"selected":""} value="${emloyee.gender}">Female</option>
                                             </select>
                                         </div>
                                     </div>
@@ -161,8 +162,8 @@
                                         <label class="col-lg-3 control-label">Position:</label>
                                         <div class="col-lg-8">
                                             <select name="position">
-                                                <c:forEach items="${listEmployees}" var="E">
-                                                    <option ${E.position == employee.position ?"selected":""} value="${emplyee.position}">${employee.position}</option>
+                                                <c:forEach items="${listPositions}" var="P">
+                                                    <option ${P.position == employee.position ?"selected":""} value="${emplyee.position}">${P.position}</option>
                                                 </c:forEach>
                                             </select>
                                         </div>
@@ -185,10 +186,6 @@
                                                 </div>
                                                 </form>
 
-                                                </div>
-                                                </div>
-                                                </div>
-                                                </form>
 
                                                 <hr>
                                                 <footer class="py-4 bg-light mt-auto">

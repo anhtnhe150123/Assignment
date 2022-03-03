@@ -99,8 +99,9 @@ public class EmployeeDAO {
 
     public Employee getEmployeeByID(String id) {
         try {
-            String sql = "select * from EMPLOYEE\n"
-                    + "where em_id=?";
+            String sql = "SELECT*\n"
+                    + "  FROM [AssignmentDB].[dbo].[EMPLOYEE]\n"
+                    + "  where em_id = ?";
 
             //Mở kết nối
             Connection conn = new DBContext().getConnection();
@@ -112,7 +113,7 @@ public class EmployeeDAO {
             //Thực thi và trả về kết quả
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                Employee employee = new Employee(rs.getString(1), rs.getString(2), rs.getDate(3), rs.getString(4), rs.getString(5), rs.getDate(7));
+                Employee employee = new Employee(rs.getString(1), rs.getString(2), rs.getDate(3), rs.getString(4), rs.getString(5), rs.getDate(6));
                 return employee;
             }
         } catch (Exception ex) {
