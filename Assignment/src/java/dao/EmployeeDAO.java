@@ -7,7 +7,6 @@ package dao;
 
 import context.DBContext;
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -79,7 +78,7 @@ public class EmployeeDAO {
 
     public static void delete(String id) {
         try {
-            String sql = "DELETE FROM [dbo].[EMPLOYEE]\n"
+            String sql = "DELETE FROM [EMPLOYEE]\n"
                     + "      WHERE em_id = ?";
 
             //Mở kết nối
@@ -125,8 +124,7 @@ public class EmployeeDAO {
     public void update(Employee employee) {
         try {
             String sql = "UPDATE [AssignmentDB].[dbo].[EMPLOYEE]\n"
-                    + "   SET [em_id] = ?\n"
-                    + "      ,[full_name] = ?\n"
+                    + "   SET [full_name] = ?\n"
                     + "      ,[birth_date] = ?\n"
                     + "      ,[gender] = ?\n"
                     + "      ,[position] = ?\n"
@@ -138,13 +136,35 @@ public class EmployeeDAO {
 
             //Đưa câu lệnh sql vào prepare để chuẩn bị thực thi
             PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setString(1, employee.getId());
-            ps.setString(2, employee.getName());
-            ps.setDate(3, employee.getDob());
-            ps.setString(4, employee.getGender());
-            ps.setString(5, employee.getPosition());
-            ps.setDate(6, employee.getStartDate());
 
+            ps.setString(1, employee.getName());
+            ps.setDate(2, employee.getDob());
+            ps.setString(3, employee.getGender());
+            ps.setString(4, employee.getPosition());
+            ps.setDate(5, employee.getStartDate());
+            ps.setString(6, employee.getId());
+
+            //Thực thi và trả về kết quả
+            ps.executeUpdate();
+
+        } catch (Exception ex) {
+            Logger.getLogger(EmployeeDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public void create1(Employee employee1) {
+        try {
+            String sql = "INSERT INTO [ATTENDANCE]\n"
+                    + "           ([em_id])\n"
+                    + "     VALUES\n"
+                    + "           (?)";
+
+            //Mở kết nối
+            Connection conn = new DBContext().getConnection();
+
+            //Đưa câu lệnh sql vào prepare để chuẩn bị thực thi
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, employee1.getId());
             //Thực thi và trả về kết quả
             ps.executeUpdate();
 

@@ -6,6 +6,7 @@
 package controller;
 
 import dao.EmployeeDAO;
+import dao.PositionDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Date;
@@ -15,6 +16,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Employee;
+import model.Position;
 
 /**
  *
@@ -44,8 +46,10 @@ public class CreateController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        List<Employee> listEmployees = new EmployeeDAO().getAllEmployees();    
+        List<Employee> listEmployees = new EmployeeDAO().getAllEmployees();
         request.setAttribute("listEmployees", listEmployees);
+        List<Position> listPositions = new PositionDAO().getAllPosition();
+        request.setAttribute("listPositions", listPositions);
         request.getRequestDispatcher("create.jsp").forward(request, response);
     }
 
@@ -68,8 +72,13 @@ public class CreateController extends HttpServlet {
         Date startDate = Date.valueOf(request.getParameter("startdate"));
         
         Employee employee = new Employee(id, name, dob, gender, position, startDate);
+        Employee employee1 = new Employee(id);
         EmployeeDAO employeeDAO = new EmployeeDAO();
         employeeDAO.create(employee);
+        employeeDAO.create1(employee1);
+        
+        
+        
          response.sendRedirect("table");
         
 

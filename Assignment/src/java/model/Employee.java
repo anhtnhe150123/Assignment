@@ -33,6 +33,10 @@ public class Employee {
         this.startDate = startDate;
     }
 
+    public Employee(String id) {
+        this.id = id;
+    }
+
     public String getId() {
         return id;
     }

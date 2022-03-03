@@ -162,8 +162,8 @@
                                         <label class="col-lg-3 control-label">Position:</label>
                                         <div class="col-lg-8">
                                             <select name="position">
-                                                <c:forEach items="${listEmployees}" var="E">
-                                                    <option>${E.position} </option>
+                                                <c:forEach items="${listPositions}" var="P">
+                                                    <option>${P.position} </option>
                                                 </c:forEach>
                                             </select>
                                         </div>

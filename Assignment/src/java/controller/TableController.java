@@ -6,6 +6,7 @@
 package controller;
 
 import dao.EmployeeDAO;
+import dao.PositionDAO;
 import java.io.IOException;
 import java.util.List;
 import javax.servlet.ServletException;
@@ -13,6 +14,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Employee;
+import model.Position;
 
 /**
  *
@@ -32,7 +34,8 @@ public class TableController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         List<Employee> listEmployees = new EmployeeDAO().getAllEmployees();
-        
+        List<Position> listPositions = new PositionDAO().getAllPosition();
+         request.setAttribute("listPositions", listPositions);
         request.setAttribute("listEmployees", listEmployees);
         request.getRequestDispatcher("table.jsp").forward(request, response);
     }
