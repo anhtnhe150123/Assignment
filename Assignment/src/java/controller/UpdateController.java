@@ -7,6 +7,8 @@ package controller;
 
 import dao.EmployeeDAO;
 import java.io.IOException;
+import java.sql.Date;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -43,9 +45,10 @@ public class UpdateController extends HttpServlet {
         String id = request.getParameter("id");
         EmployeeDAO employeeDAO = new EmployeeDAO();
         Employee employee = employeeDAO.getEmployeeByID(id);
-
+        List<Employee> listEmployees = new EmployeeDAO().getAllEmployees();    
+        request.setAttribute("listEmployees", listEmployees);    
         request.setAttribute("employee", employee);
-        request.getRequestDispatcher("updateStudent.jsp").forward(request, response);
+        request.getRequestDispatcher("test.jsp").forward(request, response);
     }
 
     /**
@@ -59,7 +62,17 @@ public class UpdateController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        //Xử ly update student
+        String id = request.getParameter("id");
+        String name = request.getParameter("name");
+        Date dob = Date.valueOf(request.getParameter("dob"));
+        String gender = request.getParameter("gender");
+        String position = request.getParameter("position");
+        Date startDate = Date.valueOf(request.getParameter("startdate"));
+        
+        Employee employee = new Employee(id, name, dob, gender, position, startDate);
+        new EmployeeDAO().update(employee);
+        response.sendRedirect("table");
     }
 
     /**

@@ -121,4 +121,35 @@ public class EmployeeDAO {
         return null;
     }
 
+    public void update(Employee employee) {
+        try {
+            String sql = "UPDATE [AssignmentDB].[dbo].[EMPLOYEE]\n"
+                    + "   SET [em_id] = ?\n"
+                    + "      ,[full_name] = ?\n"
+                    + "      ,[birth_date] = ?\n"
+                    + "      ,[gender] = ?\n"
+                    + "      ,[position] = ?\n"
+                    + "      ,[start_date] = ?\n"
+                    + " WHERE em_id = ?";
+
+            //Mở kết nối
+            Connection conn = new DBContext().getConnection();
+
+            //Đưa câu lệnh sql vào prepare để chuẩn bị thực thi
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, employee.getId());
+            ps.setString(2, employee.getName());
+            ps.setDate(3, employee.getDob());
+            ps.setString(4, employee.getGender());
+            ps.setString(5, employee.getPosition());
+            ps.setDate(6, employee.getStartDate());
+
+            //Thực thi và trả về kết quả
+            ps.executeUpdate();
+
+        } catch (Exception ex) {
+            Logger.getLogger(EmployeeDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
 }
