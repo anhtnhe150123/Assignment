@@ -5,16 +5,17 @@
  */
 package controller;
 
+import dao.AttendDAO;
 import dao.EmployeeDAO;
 import dao.PositionDAO;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.Date;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Attend;
 import model.Employee;
 import model.Position;
 
@@ -72,13 +73,12 @@ public class CreateController extends HttpServlet {
         Date startDate = Date.valueOf(request.getParameter("startdate"));
         
         Employee employee = new Employee(id, name, dob, gender, position, startDate);
-        Employee employee1 = new Employee(id);
         EmployeeDAO employeeDAO = new EmployeeDAO();
-        employeeDAO.create(employee);
-        employeeDAO.create1(employee1);
+        employeeDAO. insertToEmploy(employee);
         
-        
-        
+        Attend attend = new Attend(id);
+        AttendDAO dao = new AttendDAO();
+        dao.insertToAttend(attend);
          response.sendRedirect("table");
         
 

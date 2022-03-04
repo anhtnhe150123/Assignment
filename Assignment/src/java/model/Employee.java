@@ -33,8 +33,8 @@ public class Employee {
         this.startDate = startDate;
     }
 
-    public Employee(String id) {
-        this.id = id;
+    public Employee(String name, Date dob, String gender, String position, Date startDate) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public String getId() {

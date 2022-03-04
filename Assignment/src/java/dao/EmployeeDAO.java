@@ -44,9 +44,9 @@ public class EmployeeDAO {
         return list;
     }
 
-    public void create(Employee employee) {
+    public void insertToEmploy(Employee employee) {
         try {
-            String sql = "INSERT INTO [AssignmentDB].[dbo].[EMPLOYEE]\n"
+            String sql = "INSERT INTO [EMPLOYEE]\n"
                     + "           ([em_id]\n"
                     + "           ,[full_name]\n"
                     + "           ,[birth_date]\n"
@@ -76,7 +76,7 @@ public class EmployeeDAO {
         }
     }
 
-    public static void delete(String id) {
+    public static void deleteInEmploy(String id) {
         try {
             String sql = "DELETE FROM [EMPLOYEE]\n"
                     + "      WHERE em_id = ?";
@@ -98,7 +98,7 @@ public class EmployeeDAO {
 
     public Employee getEmployeeByID(String id) {
         try {
-            String sql = "SELECT*\n"
+            String sql = "SELECT *\n"
                     + "  FROM [AssignmentDB].[dbo].[EMPLOYEE]\n"
                     + "  where em_id = ?";
 
@@ -123,7 +123,7 @@ public class EmployeeDAO {
 
     public void update(Employee employee) {
         try {
-            String sql = "UPDATE [AssignmentDB].[dbo].[EMPLOYEE]\n"
+            String sql = "UPDATE [EMPLOYEE]\n"
                     + "   SET [full_name] = ?\n"
                     + "      ,[birth_date] = ?\n"
                     + "      ,[gender] = ?\n"
@@ -144,27 +144,6 @@ public class EmployeeDAO {
             ps.setDate(5, employee.getStartDate());
             ps.setString(6, employee.getId());
 
-            //Thực thi và trả về kết quả
-            ps.executeUpdate();
-
-        } catch (Exception ex) {
-            Logger.getLogger(EmployeeDAO.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
-    public void create1(Employee employee1) {
-        try {
-            String sql = "INSERT INTO [ATTENDANCE]\n"
-                    + "           ([em_id])\n"
-                    + "     VALUES\n"
-                    + "           (?)";
-
-            //Mở kết nối
-            Connection conn = new DBContext().getConnection();
-
-            //Đưa câu lệnh sql vào prepare để chuẩn bị thực thi
-            PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setString(1, employee1.getId());
             //Thực thi và trả về kết quả
             ps.executeUpdate();
 

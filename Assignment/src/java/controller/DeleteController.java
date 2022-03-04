@@ -5,6 +5,7 @@
  */
 package controller;
 
+import dao.AttendDAO;
 import dao.EmployeeDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -34,7 +35,9 @@ public class DeleteController extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             String id= request.getParameter("id");
             EmployeeDAO employeeDAO = new EmployeeDAO();
-            employeeDAO.delete(id);
+            AttendDAO attendDAO = new AttendDAO();
+            attendDAO.deleteInAttend(id);
+            employeeDAO.deleteInEmploy(id);
             response.sendRedirect("table");
         }
     }
