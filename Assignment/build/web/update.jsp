@@ -161,10 +161,10 @@
                             <div class="form-group">
                                 <label class="col-lg-3 control-label">Position:</label>
                                 <div class="col-lg-8">
-                                    <select name="position">
-                                        <c:forEach items="${listEmployees}" var="E">
-                                             <option ${E.position==employee.position ?"selected":""}
-                                                value="${emplyee.position}">${E.position}</option>
+                                    <select name="positionId">
+                                        <c:forEach items="${listPositions}" var="E">
+                                             <option ${E.positionId == employee.positionId ?"selected":""}
+                                                value="${E.positionId}">${E.positionName}</option>
                                         </c:forEach>
                                     </select>
                                 </div>

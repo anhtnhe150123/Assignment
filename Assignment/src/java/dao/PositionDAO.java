@@ -21,7 +21,7 @@ import model.Position;
  */
 public class PositionDAO {
 
-    public List<Position> getAllPosition() {
+    public List<Position> getAllPositions() {
        List<Position> list = new ArrayList<>();
         try {
             String sql = "select * from POSITION";
@@ -30,8 +30,9 @@ public class PositionDAO {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 Position position = new Position();
-                position.setPosition(rs.getString(1));
-                position.setBasicSalary(rs.getDouble(2));
+                position.setPositionId(rs.getInt(1));
+                position.setPositionName(rs.getString(2));
+                position.setBasicSalary(rs.getDouble(3));
                 list.add(position);
             }
         } catch (Exception ex) {

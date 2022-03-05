@@ -37,7 +37,9 @@ public class UpdateController extends HttpServlet {
             throws ServletException, IOException {
         String id = request.getParameter("id");
         Employee employee = new EmployeeDAO().getEmployeeByID(id);
+        List<Position> listPositions = new PositionDAO().getAllPositions();
         
+        request.setAttribute("listPositions", listPositions);
         request.setAttribute("employee", employee);
         request.getRequestDispatcher("update.jsp").forward(request, response);
     }
@@ -57,10 +59,10 @@ public class UpdateController extends HttpServlet {
         String name = request.getParameter("name");
         Date dob = Date.valueOf(request.getParameter("dob"));
         String gender = request.getParameter("gender");
-        String position = request.getParameter("position");
+        int positionId = Integer.parseInt(request.getParameter("positionId"));
         Date startDate = Date.valueOf(request.getParameter("startdate"));
         
-        Employee employee = new Employee(id, name, dob, gender, position, startDate);
+        Employee employee = new Employee(id, name, dob, gender, positionId, startDate, "");
         new EmployeeDAO().update(employee);
         response.sendRedirect("table");
     }

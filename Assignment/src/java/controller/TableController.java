@@ -34,7 +34,7 @@ public class TableController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         List<Employee> listEmployees = new EmployeeDAO().getAllEmployees();
-        List<Position> listPositions = new PositionDAO().getAllPosition();
+        List<Position> listPositions = new PositionDAO().getAllPositions();
         request.setAttribute("listPositions", listPositions);
         request.setAttribute("listEmployees", listEmployees);
         request.getRequestDispatcher("table.jsp").forward(request, response);

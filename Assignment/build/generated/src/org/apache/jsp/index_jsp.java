@@ -71,7 +71,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    <body class=\"sb-nav-fixed\">\n");
       out.write("        <nav class=\"sb-topnav navbar navbar-expand navbar-dark bg-dark\">\n");
       out.write("            <!-- Navbar Brand-->\n");
-      out.write("            <a class=\"navbar-brand ps-3\" href=\"index.html\">Start Bootstrap</a>\n");
+      out.write("            <a class=\"navbar-brand ps-3\" href=\"index.jsp\">Start Bootstrap</a>\n");
       out.write("            <!-- Sidebar Toggle-->\n");
       out.write("            <button class=\"btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0\" id=\"sidebarToggle\" href=\"#!\"><i class=\"fas fa-bars\"></i></button>\n");
       out.write("            <!-- Navbar Search-->\n");
@@ -152,7 +152,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                <div class=\"sb-nav-link-icon\"><i class=\"fas fa-chart-area\"></i></div>\n");
       out.write("                                Charts\n");
       out.write("                            </a>\n");
-      out.write("                            <a class=\"nav-link\" href=\"tables.html\">\n");
+      out.write("                            <a class=\"nav-link\" href=\"TableController.java\">\n");
       out.write("                                <div class=\"sb-nav-link-icon\"><i class=\"fas fa-table\"></i></div>\n");
       out.write("                                Tables\n");
       out.write("                            </a>\n");
@@ -232,7 +232,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                        <div class=\"card mb-4\">\n");
       out.write("                            <div class=\"card-header\">\n");
       out.write("                                <i class=\"fas fa-table me-1\"></i>\n");
-      out.write("                                Employee Table\n");
+      out.write("                                EMPLOYEE TABLE\n");
       out.write("                            </div>\n");
       out.write("                            <div class=\"card-body\">\n");
       out.write("                                <table id=\"datatablesSimple\">\n");
@@ -248,12 +248,12 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                    </thead>\n");
       out.write("                                    <tfoot>\n");
       out.write("                                        <tr>\n");
-      out.write("                                            <th>Name</th>\n");
+      out.write("                                            <th>Id</th>\n");
+      out.write("                                            <th>Full name</th>\n");
+      out.write("                                            <th>Date of birth</th>\n");
+      out.write("                                            <th>Gender</th>\n");
       out.write("                                            <th>Position</th>\n");
-      out.write("                                            <th>Office</th>\n");
-      out.write("                                            <th>Age</th>\n");
       out.write("                                            <th>Start date</th>\n");
-      out.write("                                            <th>Salary</th>\n");
       out.write("                                        </tr>\n");
       out.write("                                    </tfoot>\n");
       out.write("                                    <tbody>\n");
@@ -320,27 +320,27 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       if (_jspx_eval_c_forEach_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
         do {
           out.write("\n");
-          out.write("                                        <tr>\n");
-          out.write("                                            <td>");
+          out.write("                                            <tr>\n");
+          out.write("                                                <td>");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${E.id}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("</td>\n");
-          out.write("                                            <td>");
+          out.write("                                                <td>");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${E.name}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("</td>\n");
-          out.write("                                            <td>");
+          out.write("                                                <td>");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${E.dateBirth}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("</td>\n");
-          out.write("                                            <td>");
+          out.write("                                                <td>");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${E.gender}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("</td>\n");
-          out.write("                                            <td>");
+          out.write("                                                <td>");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${E.position}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("</td>\n");
-          out.write("                                            <td>");
+          out.write("                                                <td>");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${E.startDate}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("</td>\n");
-          out.write("                                        </tr>\n");
-          out.write("                                       ");
+          out.write("                                            </tr>\n");
+          out.write("                                        ");
           int evalDoAfterBody = _jspx_th_c_forEach_0.doAfterBody();
           if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
             break;

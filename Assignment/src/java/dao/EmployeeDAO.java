@@ -24,7 +24,8 @@ public class EmployeeDAO {
     public List<Employee> getAllEmployees() {
         List<Employee> list = new ArrayList<>();
         try {
-            String sql = "select * from EMPLOYEE";
+            String sql = "select * from EMPLOYEE inner join POSITION\n"
+                    + "on EMPLOYEE.position_id = POSITION.id";
             Connection conn = new DBContext().getConnection();
             PreparedStatement ps = conn.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
@@ -34,8 +35,9 @@ public class EmployeeDAO {
                 employee.setName(rs.getString(2));
                 employee.setDob(rs.getDate(3));
                 employee.setGender(rs.getString(4));
-                employee.setPosition(rs.getString(5));
+                employee.setPositionId(rs.getInt(5));
                 employee.setStartDate(rs.getDate(6));
+                employee.setPositionName(rs.getString(8));
                 list.add(employee);
             }
         } catch (Exception ex) {
@@ -51,7 +53,7 @@ public class EmployeeDAO {
                     + "           ,[full_name]\n"
                     + "           ,[birth_date]\n"
                     + "           ,[gender]\n"
-                    + "           ,[position]\n"
+                    + "           ,[position_id]\n"
                     + "           ,[start_date])\n"
                     + "     VALUES\n"
                     + "           (?,?,?,?,?,?)";
@@ -65,7 +67,7 @@ public class EmployeeDAO {
             ps.setString(2, employee.getName());
             ps.setDate(3, employee.getDob());
             ps.setString(4, employee.getGender());
-            ps.setString(5, employee.getPosition());
+            ps.setInt(5, employee.getPositionId());
             ps.setDate(6, employee.getStartDate());
 
             //Thực thi và trả về kết quả
@@ -98,9 +100,9 @@ public class EmployeeDAO {
 
     public Employee getEmployeeByID(String id) {
         try {
-            String sql = "SELECT *\n"
-                    + "  FROM [AssignmentDB].[dbo].[EMPLOYEE]\n"
-                    + "  where em_id = ?";
+            String sql = "select * from EMPLOYEE inner join POSITION\n"
+                    + "on EMPLOYEE.position_id = POSITION.id\n"
+                    + "where em_id = ?";
 
             //Mở kết nối
             Connection conn = new DBContext().getConnection();
@@ -112,7 +114,7 @@ public class EmployeeDAO {
             //Thực thi và trả về kết quả
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                Employee employee = new Employee(rs.getString(1), rs.getString(2), rs.getDate(3), rs.getString(4), rs.getString(5), rs.getDate(6));
+                Employee employee = new Employee(rs.getString(1), rs.getString(2), rs.getDate(3), rs.getString(4), rs.getInt(5), rs.getDate(6), rs.getString(8));
                 return employee;
             }
         } catch (Exception ex) {
@@ -127,7 +129,7 @@ public class EmployeeDAO {
                     + "   SET [full_name] = ?\n"
                     + "      ,[birth_date] = ?\n"
                     + "      ,[gender] = ?\n"
-                    + "      ,[position] = ?\n"
+                    + "      ,[position_id] = ?\n"
                     + "      ,[start_date] = ?\n"
                     + " WHERE em_id = ?";
 
@@ -140,7 +142,7 @@ public class EmployeeDAO {
             ps.setString(1, employee.getName());
             ps.setDate(2, employee.getDob());
             ps.setString(3, employee.getGender());
-            ps.setString(4, employee.getPosition());
+            ps.setInt(4, employee.getPositionId());
             ps.setDate(5, employee.getStartDate());
             ps.setString(6, employee.getId());
 

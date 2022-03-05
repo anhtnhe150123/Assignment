@@ -164,7 +164,7 @@
                                                 <td>${E.name}</td>
                                                 <td>${E.dob}</td>
                                                 <td>${E.gender}</td>
-                                                <td>${E.position}</td>
+                                                <td>${E.positionId}</td>
                                                 <td>${E.startDate}</td>              
                                                 <td><a href="update?id=${E.id}" style="margin-left: 5px;">
                                                         <i class="fa fa-edit" style="font-size:20px"></i>

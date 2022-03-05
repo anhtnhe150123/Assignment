@@ -35,8 +35,6 @@ public class DeleteController extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             String id= request.getParameter("id");
             EmployeeDAO employeeDAO = new EmployeeDAO();
-            AttendDAO attendDAO = new AttendDAO();
-            attendDAO.deleteInAttend(id);
             employeeDAO.deleteInEmploy(id);
             response.sendRedirect("table");
         }

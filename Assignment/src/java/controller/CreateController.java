@@ -47,10 +47,6 @@ public class CreateController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        List<Employee> listEmployees = new EmployeeDAO().getAllEmployees();
-        request.setAttribute("listEmployees", listEmployees);
-        List<Position> listPositions = new PositionDAO().getAllPosition();
-        request.setAttribute("listPositions", listPositions);
         request.getRequestDispatcher("create.jsp").forward(request, response);
     }
 
@@ -69,16 +65,13 @@ public class CreateController extends HttpServlet {
         String name = request.getParameter("name");
         Date dob = Date.valueOf(request.getParameter("dob"));
         String gender = request.getParameter("gender");
-        String position = request.getParameter("position");
+        int positionId = Integer.parseInt(request.getParameter("positionId"));
         Date startDate = Date.valueOf(request.getParameter("startdate"));
         
-        Employee employee = new Employee(id, name, dob, gender, position, startDate);
+        Employee employee = new Employee(id, name, dob, gender, positionId, startDate, "");
         EmployeeDAO employeeDAO = new EmployeeDAO();
         employeeDAO. insertToEmploy(employee);
         
-        Attend attend = new Attend(id);
-        AttendDAO dao = new AttendDAO();
-        dao.insertToAttend(attend);
          response.sendRedirect("table");
         
 

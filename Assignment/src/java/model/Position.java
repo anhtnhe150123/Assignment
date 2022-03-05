@@ -10,23 +10,33 @@ package model;
  * @author Apple
  */
 public class Position {
-    String position;
-    Double basicSalary;
+    private int positionId;
+    private String positionName;
+    private Double basicSalary;
 
     public Position() {
     }
 
-    public Position(String position, Double basicSalary) {
-        this.position = position;
+    public Position(int positionId, String positionName, Double basicSalary) {
+        this.positionId = positionId;
+        this.positionName = positionName;
         this.basicSalary = basicSalary;
     }
 
-    public String getPosition() {
-        return position;
+    public int getPositionId() {
+        return positionId;
     }
 
-    public void setPosition(String position) {
-        this.position = position;
+    public void setPositionId(int positionId) {
+        this.positionId = positionId;
+    }
+
+    public String getPositionName() {
+        return positionName;
+    }
+
+    public void setPositionName(String positionName) {
+        this.positionName = positionName;
     }
 
     public Double getBasicSalary() {
@@ -35,11 +45,6 @@ public class Position {
 
     public void setBasicSalary(Double basicSalary) {
         this.basicSalary = basicSalary;
-    }
-
-    @Override
-    public String toString() {
-        return "Position{" + "position=" + position + ", basicSalary=" + basicSalary + '}';
     }
     
 }

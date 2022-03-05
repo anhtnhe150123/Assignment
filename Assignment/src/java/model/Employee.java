@@ -18,23 +18,21 @@ public class Employee {
     private String name;
     private Date dob;
     private String gender;
-    private String position;
+    private int positionId;
     private Date startDate;
+    private String positionName;
 
     public Employee() {
     }
 
-    public Employee(String id, String name, Date dob, String gender, String position, Date startDate) {
+    public Employee(String id, String name, Date dob, String gender, int positionId, Date startDate, String positionName) {
         this.id = id;
         this.name = name;
         this.dob = dob;
         this.gender = gender;
-        this.position = position;
+        this.positionId = positionId;
         this.startDate = startDate;
-    }
-
-    public Employee(String name, Date dob, String gender, String position, Date startDate) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.positionName = positionName;
     }
 
     public String getId() {
@@ -69,12 +67,12 @@ public class Employee {
         this.gender = gender;
     }
 
-    public String getPosition() {
-        return position;
+    public int getPositionId() {
+        return positionId;
     }
 
-    public void setPosition(String position) {
-        this.position = position;
+    public void setPositionId(int positionId) {
+        this.positionId = positionId;
     }
 
     public Date getStartDate() {
@@ -85,9 +83,19 @@ public class Employee {
         this.startDate = startDate;
     }
 
+    public String getPositionName() {
+        return positionName;
+    }
+
+    public void setPositionName(String positionName) {
+        this.positionName = positionName;
+    }
+
     @Override
     public String toString() {
-        return "Employee{" + "id=" + id + ", name=" + name + ", dob=" + dob + ", gender=" + gender + ", position=" + position + ", startDate=" + startDate + '}';
+        return "Employee{" + "id=" + id + ", name=" + name + ", dob=" + dob + ", gender=" + gender + ", positionId=" + positionId + ", startDate=" + startDate + ", positionName=" + positionName + '}';
     }
+
+   
     
 }
