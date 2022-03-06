@@ -5,21 +5,20 @@
  */
 package controller;
 
-import dao.EmployeeDAO;
+import dao.AccountDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Employee;
+import model.Account;
 
 /**
  *
  * @author Apple
  */
-public class HomeController extends HttpServlet {
+public class SignupController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,7 +32,24 @@ public class HomeController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        request.getRequestDispatcher("index.jsp").forward(request, response);
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
+        String re_pass = request.getParameter("repass");
+        if(!password.equals(re_pass)){
+            request.setAttribute("mess", "Password phai trung nhau");
+            request.getRequestDispatcher("register.jsp").forward(request, response);
+        } else {
+            AccountDAO dao = new AccountDAO();
+            Account a = dao.checkAccountExist(username);
+            if(a==null){
+                dao.signup(username, password);
+                response.sendRedirect("login.jsp");
+            } else {
+            request.setAttribute("mess2", "Da co username "); 
+            request.getRequestDispatcher("register.jsp").forward(request, response);
+            }
+        }
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

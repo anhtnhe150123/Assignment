@@ -5,21 +5,22 @@
  */
 package controller;
 
-import dao.EmployeeDAO;
+import dao.AccountDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Employee;
+import javax.servlet.http.HttpSession;
+import model.Account;
 
 /**
  *
  * @author Apple
  */
-public class HomeController extends HttpServlet {
+public class LoginController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,7 +34,19 @@ public class HomeController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        request.getRequestDispatcher("index.jsp").forward(request, response);
+//        String username = request.getParameter("username");
+//        String password = request.getParameter("password");
+//        
+//        AccountDAO dao = new AccountDAO();
+//        Account a = dao.login(username, password);
+//        if(a==null){
+//            request.setAttribute("mess", "Wrong user or pass");
+//            request.getRequestDispatcher("login.jsp").forward(request, response);
+//        } else{
+////            request.getRequestDispatcher("home").forward(request, response);
+//              response.sendRedirect("home");
+//        }
+//        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -48,7 +61,8 @@ public class HomeController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+//        processRequest(request, response);
+        request.getRequestDispatcher("login.jsp").forward(request, response);
     }
 
     /**
@@ -62,7 +76,27 @@ public class HomeController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+//        processRequest(request, response);
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
+        AccountDAO dao = new AccountDAO();
+        Account a = dao.login(username, password);
+        if (a == null) {
+            request.setAttribute("mess", "wrong username or password");
+            request.getRequestDispatcher("login.jsp").forward(request, response);
+        } else {
+            HttpSession session = request.getSession();
+            session.setAttribute("acc", a);
+            
+            //luu account tren cookie
+            Cookie u = new Cookie("userC", username);
+            Cookie p = new Cookie("passC", password);
+            u.setMaxAge(60);
+            u.setMaxAge(60);
+            response.addCookie(u);//luu u va p tren chrome
+            response.addCookie(p);
+            response.sendRedirect("home");
+        }
     }
 
     /**
