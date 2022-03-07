@@ -61,8 +61,8 @@ public class UpdateController extends HttpServlet {
         String gender = request.getParameter("gender");
         int positionId = Integer.parseInt(request.getParameter("positionId"));
         Date startDate = Date.valueOf(request.getParameter("startdate"));
-        
-        Employee employee = new Employee(id, name, dob, gender, positionId, startDate, "");
+        String imgUrl = request.getParameter("imgUrl");
+        Employee employee = new Employee(id, name, dob, gender, positionId, startDate, imgUrl, "");
         new EmployeeDAO().update(employee);
         response.sendRedirect("table");
     }

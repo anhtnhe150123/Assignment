@@ -20,18 +20,20 @@ public class Employee {
     private String gender;
     private int positionId;
     private Date startDate;
+    private String imgUrl;
     private String positionName;
 
     public Employee() {
     }
 
-    public Employee(String id, String name, Date dob, String gender, int positionId, Date startDate, String positionName) {
+    public Employee(String id, String name, Date dob, String gender, int positionId, Date startDate, String imgUrl, String positionName) {
         this.id = id;
         this.name = name;
         this.dob = dob;
         this.gender = gender;
         this.positionId = positionId;
         this.startDate = startDate;
+        this.imgUrl = imgUrl;
         this.positionName = positionName;
     }
 
@@ -83,6 +85,14 @@ public class Employee {
         this.startDate = startDate;
     }
 
+    public String getImgUrl() {
+        return imgUrl;
+    }
+
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
+    }
+
     public String getPositionName() {
         return positionName;
     }
@@ -93,9 +103,7 @@ public class Employee {
 
     @Override
     public String toString() {
-        return "Employee{" + "id=" + id + ", name=" + name + ", dob=" + dob + ", gender=" + gender + ", positionId=" + positionId + ", startDate=" + startDate + ", positionName=" + positionName + '}';
+        return "Employee{" + "id=" + id + ", name=" + name + ", dob=" + dob + ", gender=" + gender + ", positionId=" + positionId + ", startDate=" + startDate + ", imgUrl=" + imgUrl + ", positionName=" + positionName + '}';
     }
-
-   
     
 }

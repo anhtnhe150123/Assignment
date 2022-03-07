@@ -132,6 +132,12 @@
 
                                 <form class="form-horizontal" role="form">
                                     <div class="form-group">
+                                        <label class="col-lg-3 control-label">Employee IMG:</label>
+                                        <div class="col-lg-8">
+                                            <input class="form-control" name="imgUrl" type="text" value="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
                                         <label class="col-lg-3 control-label">ID:</label>
                                         <div class="col-lg-8">
                                             <input class="form-control" name="id" type="text" value="">

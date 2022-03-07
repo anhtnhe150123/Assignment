@@ -61,7 +61,20 @@ public class LoginController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-//        processRequest(request, response);
+        //processRequest(request, response);
+        //b1: get username, password from cookie
+        Cookie arr[] = request.getCookies();
+        if (arr != null) {
+            for (Cookie cookie : arr) {
+                if (cookie.getName().equals("userC")) {
+                    request.setAttribute("username", cookie.getValue());
+                }
+                if (cookie.getName().equals("passC")) {
+                    request.setAttribute("password", cookie.getValue());
+                }
+            }
+        }
+        //b2: set username, password vao login form
         request.getRequestDispatcher("login.jsp").forward(request, response);
     }
 
@@ -79,6 +92,7 @@ public class LoginController extends HttpServlet {
 //        processRequest(request, response);
         String username = request.getParameter("username");
         String password = request.getParameter("password");
+        String remember = request.getParameter("remember");
         AccountDAO dao = new AccountDAO();
         Account a = dao.login(username, password);
         if (a == null) {
@@ -87,14 +101,20 @@ public class LoginController extends HttpServlet {
         } else {
             HttpSession session = request.getSession();
             session.setAttribute("acc", a);
-            
+
             //luu account tren cookie
             Cookie u = new Cookie("userC", username);
             Cookie p = new Cookie("passC", password);
             u.setMaxAge(60);
-            u.setMaxAge(60);
+            if (remember != null) {
+                p.setMaxAge(60);
+            } else {
+                p.setMaxAge(0);
+            }
+
             response.addCookie(u);//luu u va p tren chrome
             response.addCookie(p);
+
             response.sendRedirect("home");
         }
     }

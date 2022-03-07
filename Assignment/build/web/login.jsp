@@ -28,19 +28,17 @@
                                     <div class="card-header"><h3 class="text-center font-weight-light my-4">Login</h3></div>
                                     <div class="card-body">
                                         <form action="login" method="POST">
-                                            
-                                                <p class="text-danger">${mess}</p>
-                                          
+                                            <p class="text-danger">${mess}</p>
                                             <div class="form-floating mb-3">
-                                                <input class="form-control" id="inputEmail" type="text" placeholder="User name" name="username" />
+                                                <input class="form-control" id="inputEmail" value="${username}" type="text" placeholder="User name" name="username" />
                                                 <label for="inputEmail">User name</label>
                                             </div>
                                             <div class="form-floating mb-3">
-                                                <input class="form-control" id="inputPassword" type="password" placeholder="Password" name="password"/>
+                                                <input class="form-control" id="inputPassword" value="${password}" type="password" placeholder="Password" name="password"/>
                                                 <label for="inputPassword">Password</label>
                                             </div>
                                             <div class="form-check mb-3">
-                                                <input class="form-check-input" id="inputRememberPassword" type="checkbox" value=""  name="remember"/>
+                                                <input class="form-check-input" id="inputRememberPassword" type="checkbox" value="1"  name="remember"/>
                                                 <label class="form-check-label" for="inputRememberPassword">Remember Password</label>
                                             </div>
                                             <div class="d-flex align-items-center justify-content-between mt-4 mb-0">

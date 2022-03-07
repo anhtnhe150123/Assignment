@@ -37,7 +37,8 @@ public class EmployeeDAO {
                 employee.setGender(rs.getString(4));
                 employee.setPositionId(rs.getInt(5));
                 employee.setStartDate(rs.getDate(6));
-                employee.setPositionName(rs.getString(8));
+                employee.setImgUrl(rs.getString(7));
+                employee.setPositionName(rs.getString(9));
                 list.add(employee);
             }
         } catch (Exception ex) {
@@ -54,9 +55,10 @@ public class EmployeeDAO {
                     + "           ,[birth_date]\n"
                     + "           ,[gender]\n"
                     + "           ,[position_id]\n"
-                    + "           ,[start_date])\n"
+                    + "           ,[start_date]\n"
+                    + "           ,[imgUrl])\n"
                     + "     VALUES\n"
-                    + "           (?,?,?,?,?,?)";
+                    + "           (?,?,?,?,?,?,?)";
 
             //Mở kết nối
             Connection conn = new DBContext().getConnection();
@@ -69,6 +71,7 @@ public class EmployeeDAO {
             ps.setString(4, employee.getGender());
             ps.setInt(5, employee.getPositionId());
             ps.setDate(6, employee.getStartDate());
+            ps.setString(7, employee.getImgUrl());
 
             //Thực thi và trả về kết quả
             ps.executeUpdate();
@@ -114,7 +117,15 @@ public class EmployeeDAO {
             //Thực thi và trả về kết quả
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                Employee employee = new Employee(rs.getString(1), rs.getString(2), rs.getDate(3), rs.getString(4), rs.getInt(5), rs.getDate(6), rs.getString(8));
+                Employee employee = new Employee();
+                employee.setId(rs.getString(1));
+                employee.setName(rs.getString(2));
+                employee.setDob(rs.getDate(3));
+                employee.setGender(rs.getString(4));
+                employee.setPositionId(rs.getInt(5));
+                employee.setStartDate(rs.getDate(6));
+                employee.setImgUrl(rs.getString(7));
+                employee.setPositionName(rs.getString(9));
                 return employee;
             }
         } catch (Exception ex) {
@@ -131,6 +142,7 @@ public class EmployeeDAO {
                     + "      ,[gender] = ?\n"
                     + "      ,[position_id] = ?\n"
                     + "      ,[start_date] = ?\n"
+                    + "      ,[imgUrl] = ?\n"
                     + " WHERE em_id = ?";
 
             //Mở kết nối
@@ -144,7 +156,8 @@ public class EmployeeDAO {
             ps.setString(3, employee.getGender());
             ps.setInt(4, employee.getPositionId());
             ps.setDate(5, employee.getStartDate());
-            ps.setString(6, employee.getId());
+            ps.setString(6, employee.getImgUrl());
+            ps.setString(7, employee.getId());
 
             //Thực thi và trả về kết quả
             ps.executeUpdate();
@@ -152,6 +165,31 @@ public class EmployeeDAO {
         } catch (Exception ex) {
             Logger.getLogger(EmployeeDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    public List<Employee> getEmployeesByPositionId(int positionId) {
+        List<Employee> list = new ArrayList<>();
+        try {
+            String sql = "select * from EMPLOYEE where EMPLOYEE.position_id = ?";
+            Connection conn = new DBContext().getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, positionId);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Employee employee = new Employee();
+                employee.setId(rs.getString(1));
+                employee.setName(rs.getString(2));
+                employee.setDob(rs.getDate(3));
+                employee.setGender(rs.getString(4));
+                employee.setPositionId(rs.getInt(5));
+                employee.setStartDate(rs.getDate(6));
+                employee.setImgUrl(rs.getString(7));
+                list.add(employee);
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(EmployeeDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
     }
 
 }

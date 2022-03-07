@@ -138,6 +138,7 @@
                                 <table id="datatablesSimple">
                                     <thead>
                                         <tr>
+                                            <th>Employee IMG</th>
                                             <th>Employee ID</th>
                                             <th>Full name</th>
                                             <th>Date of birth</th>
@@ -149,6 +150,7 @@
                                     </thead>
                                     <tfoot>
                                         <tr>
+                                            <th>Employee IMG</th>
                                             <th>Employee ID</th>
                                             <th>Full name</th>
                                             <th>Date of birth</th>
@@ -160,17 +162,21 @@
                                     <tbody>
                                         <c:forEach items="${listEmployees}" var="E"> 
                                             <tr>
+                                                <td><img src="${E.imgUrl}" width="100"></td>
                                                 <td>${E.id}</td>
                                                 <td>${E.name}</td>
                                                 <td>${E.dob}</td>
                                                 <td>${E.gender}</td>
-                                                <td>${E.positionId}</td>
+                                                <td>${E.positionName}</td>
                                                 <td>${E.startDate}</td>              
-                                                <td><a href="update?id=${E.id}" style="margin-left: 5px;">
-                                                        <i class="fa fa-edit" style="font-size:20px"></i>
+                                                <td><a href="detail?id=${E.id}">
+                                                        <i class="fa fa-eye"></i>
                                                     </a> 
-                                                    <a href="delete?id=${E.id}" style="margin-left: 10px;">
-                                                        <i class="fa fa-trash" style="font-size:20px"></i>
+                                                    <a href="update?id=${E.id}">
+                                                        <i class="fa fa-edit"></i>
+                                                    </a> 
+                                                    <a href="delete?id=${E.id}">
+                                                        <i class="fa fa-trash"></i>
                                                     </a>
                                                 </td>
                                             </tr>
