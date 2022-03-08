@@ -40,6 +40,14 @@
         <servlet-name>DetailController</servlet-name>
         <servlet-class>controller.DetailController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AttenController</servlet-name>
+        <servlet-class>controller.AttenController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Attendance</servlet-name>
+        <servlet-class>controller.AttendanceController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeController</servlet-name>
         <url-pattern>/home</url-pattern>
@@ -79,6 +87,14 @@
     <servlet-mapping>
         <servlet-name>DetailController</servlet-name>
         <url-pattern>/detail</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AttenController</servlet-name>
+        <url-pattern>/atten</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Attendance</servlet-name>
+        <url-pattern>/attendance</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

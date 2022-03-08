@@ -5,24 +5,18 @@
  */
 package controller;
 
-import dao.EmployeeDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 import javax.servlet.ServletException;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import model.Account;
-import model.Employee;
 
 /**
  *
  * @author Apple
  */
-public class HomeController extends HttpServlet {
+public class AttendanceController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,35 +30,9 @@ public class HomeController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        HttpSession session = request.getSession();
-        Account acc = (Account) session.getAttribute("acc");
-        if (acc != null) {
-            request.getRequestDispatcher("index.jsp").forward(request, response);
-        } else {
-            //chua dang nhap
-            //kiem tra cookie
-            
-//            Cookie[] cookies = request.getCookies();
-//            String uname = null;
-//            String pass = null;
-//            for (Cookie cooky : cookies) {
-//                if (cooky.getName().equals("userC")) {
-//                    uname = cooky.getValue();
-//                }
-//                if (cooky.getName().equals("passC")) {
-//                    pass = cooky.getValue();
-//                }
-//                if (uname != null && pass != null) {
-//                    break; 
-//                }
-//            }
-//            if (uname != null && pass != null) {
-//            request.getRequestDispatcher("home").forward(request, response);
-//            return;
-//            }
-            response.sendRedirect("login");
-        }
-        
+       
+       String startTime = request.getParameter("time");
+       String endTime = request.getParameter("time");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

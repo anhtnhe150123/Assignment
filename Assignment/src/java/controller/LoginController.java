@@ -105,9 +105,9 @@ public class LoginController extends HttpServlet {
             //luu account tren cookie
             Cookie u = new Cookie("userC", username);
             Cookie p = new Cookie("passC", password);
-            u.setMaxAge(60);
+            u.setMaxAge(24 * 3600);
             if (remember != null) {
-                p.setMaxAge(60);
+                p.setMaxAge(24 * 3600);
             } else {
                 p.setMaxAge(0);
             }
