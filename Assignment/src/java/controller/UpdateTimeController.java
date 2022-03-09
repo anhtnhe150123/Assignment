@@ -7,20 +7,20 @@ package controller;
 
 import dao.AttendDAO;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import model.Account;
+import model.Atten;
 import model.Attend;
 
 /**
  *
  * @author Apple
  */
-public class AttendanceController extends HttpServlet {
+public class UpdateTimeController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,14 +37,14 @@ public class AttendanceController extends HttpServlet {
        HttpSession session = request.getSession();
        Account a = (Account) session.getAttribute("acc");
        String userName= a.getUsername();
-       String startTime = request.getParameter("startTime");
-       Attend attend = new Attend(0, userName, startTime);
+       String endTime = request.getParameter("endTime");
+       Atten atten = new Atten(0, userName, endTime);
        AttendDAO attendDAO = new AttendDAO();
-       attendDAO.insertInAttend(attend);
+       attendDAO.insertInAttend2(atten);
        response.sendRedirect("home");
        
     }
-
+    
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.

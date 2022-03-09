@@ -5,24 +5,22 @@
  */
 package model;
 
-import java.sql.Date;
-
 /**
  *
  * @author Apple
  */
-public class Attend {
-    private int id;
+public class Atten {
+     private int id;
     private String userName;
-    private String startTime;
+    private String endTime;
 
-    public Attend() {
+    public Atten() {
     }
 
-    public Attend(int id, String userName, String startTime) {
+    public Atten(int id, String userName, String endTime) {
         this.id = id;
         this.userName = userName;
-        this.startTime = startTime;
+        this.endTime = endTime;
     }
 
     public int getId() {
@@ -41,17 +39,17 @@ public class Attend {
         this.userName = userName;
     }
 
-    public String getStartTime() {
-        return startTime;
+    public String getEndTime() {
+        return endTime;
     }
 
-    public void setStartTime(String startTime) {
-        this.startTime = startTime;
+    public void setEndTime(String endTime) {
+        this.endTime = endTime;
     }
 
     @Override
     public String toString() {
-        return "Attend{" + "id=" + id + ", userName=" + userName + ", startTime=" + startTime + '}';
+        return "Atten{" + "id=" + id + ", userName=" + userName + ", endTime=" + endTime + '}';
     }
     
 }

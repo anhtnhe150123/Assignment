@@ -48,6 +48,10 @@
         <servlet-name>Attendance</servlet-name>
         <servlet-class>controller.AttendanceController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>UpdateTimeController</servlet-name>
+        <servlet-class>controller.UpdateTimeController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeController</servlet-name>
         <url-pattern>/home</url-pattern>
@@ -95,6 +99,10 @@
     <servlet-mapping>
         <servlet-name>Attendance</servlet-name>
         <url-pattern>/attendance</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateTimeController</servlet-name>
+        <url-pattern>/update-time</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

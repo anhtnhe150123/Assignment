@@ -146,23 +146,68 @@
                         <div class="col-xl-4 col-md-4">
                             <button type="button" class="btn btn-outline-success" onclick="date()">Start check</button>
                         </div>
-
                         <div class="col-xl-4 col-md-4">
-                            <button type="button" class="btn btn-outline-danger" onclick="date2()">End check</button>
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="row">
-                    <div class="col-xl-4 col-md-4">
                         <input id="hvn" type="datetime" name="startTime">
-                    </div>
-                    <div class="col-xl-4 col-md-4">
-                        <input id="hvn1" type="datetime" name="endTime">
-                    </div>
-                    <div class="col-xl-4 col-md-4">
+                        </div>
+                        <div class="col-xl-4 col-md-4">
                         <input type="submit" value="SEND" class="btn btn-outline-primary">
                     </div> 
                     </div>
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>User Name</th>
+                                        <th>Start time</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                        <tr>
+                                            <td>${attend.userName}</td>
+                                            <td>${attend.startTime}</td>
+                                        </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    </form>
+                    <br>
+                    <hr>
+                    <br>
+                    <form action="update-time" method="POST">
+                    <div class="row">
+                        <div class="col-xl-4 col-md-4">
+                            <button type="button" class="btn btn-outline-danger" onclick="date2()">End check</button>
+                        </div>
+                        <div class="col-xl-4 col-md-4">
+                        <input id="hvn1" type="datetime" name="endTime">
+                        </div>
+                        <div class="col-xl-4 col-md-4">
+                        <input type="submit" value="SEND" class="btn btn-outline-primary">
+                    </div> 
+                    </div>
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>User Name</th>
+                                        <th>End time</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <c:forEach items="${listEmployees}" var="E">
+                                        <tr>
+                                            <td>${E.id}</td>
+                                            <td>${E.name}</td>
+                                        </tr>
+                                    </c:forEach>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    </form>
             
                     
                     <script>
@@ -188,41 +233,8 @@
                     
                     <br>
                     <hr>
-                    <div class="card mb-4">
-                        <div class="card-header">
-                            <i class="fas fa-table me-1"></i>
-                            EMPLOYEE TABLE
-                        </div>
-                        <div class="card-body">
-                            <table id="datatablesSimple">
-                                <thead>
-                                    <tr>
-                                        <th>User Name</th>
-                                        <th>Start time</th>
-                                        <th>End time</th>
-                                    </tr>
-                                </thead>
-                                <tfoot>
-                                    <tr>
-                                        <th>User Name</th>
-                                        <th>Start time</th>
-                                        <th>End time</th>
-                                    </tr>
-                                </tfoot>
-                                <tbody>
-                                    <c:forEach items="${listEmployees}" var="E">
-                                        <tr>
-                                            <td>${E.id}</td>
-                                            <td>${E.name}</td>
-                                            <td>${E.dateBirth}</td>
-                                        </tr>
-                                    </c:forEach>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
+                    
                 </div>
-                </form>
             </main>
         </div>
     </div>
