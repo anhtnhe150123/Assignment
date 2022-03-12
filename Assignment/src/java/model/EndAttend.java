@@ -9,18 +9,20 @@ package model;
  *
  * @author Apple
  */
-public class Atten {
-     private int id;
+public class EndAttend {
+    private int id;
     private String userName;
     private String endTime;
+    private String date;
 
-    public Atten() {
+    public EndAttend() {
     }
 
-    public Atten(int id, String userName, String endTime) {
+    public EndAttend(int id, String userName, String endTime, String date) {
         this.id = id;
         this.userName = userName;
         this.endTime = endTime;
+        this.date = date;
     }
 
     public int getId() {
@@ -47,9 +49,18 @@ public class Atten {
         this.endTime = endTime;
     }
 
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
     @Override
     public String toString() {
-        return "Atten{" + "id=" + id + ", userName=" + userName + ", endTime=" + endTime + '}';
+        return "EndAttend{" + "id=" + id + ", userName=" + userName + ", endTime=" + endTime + ", date=" + date + '}';
     }
-    
+
+   
 }

@@ -96,7 +96,7 @@ public class LoginController extends HttpServlet {
         AccountDAO dao = new AccountDAO();
         Account a = dao.login(username, password);
         if (a == null) {
-            request.setAttribute("mess", "wrong username or password");
+            request.setAttribute("mess", "Username or Password invalid");
             request.getRequestDispatcher("login.jsp").forward(request, response);
         } else {
             HttpSession session = request.getSession();

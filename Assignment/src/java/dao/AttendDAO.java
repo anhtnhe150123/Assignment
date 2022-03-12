@@ -8,10 +8,13 @@ package dao;
 import context.DBContext;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import model.Atten;
-import model.Attend;
+import model.EndAttend;
+import model.StartAttend;
 
 /**
  *
@@ -19,21 +22,22 @@ import model.Attend;
  */
 public class AttendDAO {
 
-    public void insertInAttend(Attend attend) {
+    public void insertInAttend(String userName, String startTime) {
         try {
-            String sql = "INSERT INTO [AssignmentDB].[dbo].[ATTEN]\n"
+            String sql = "INSERT INTO [AssignmentDB].[dbo].[STARTATTEN]\n"
                     + "           ([username]\n"
-                    + "           ,[start_time])\n"
+                    + "           ,[start_time]\n"
+                    + "           ,[Date])\n"
                     + "     VALUES\n"
-                    + "           (?,?)";
+                    + "           (?,?, GETDATE())";
 
             //Mở kết nối
             Connection conn = new DBContext().getConnection();
 
             //Đưa câu lệnh sql vào prepare để chuẩn bị thực thi
             PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setString(1, attend.getUserName());
-            ps.setString(2, attend.getStartTime());
+            ps.setString(1, userName);
+            ps.setString(2, startTime);
 
             //Thực thi và trả về kết quả
             ps.executeUpdate();
@@ -43,21 +47,46 @@ public class AttendDAO {
         }
     }
 
-    public void insertInAttend2(Atten atten) {
+    public List<StartAttend> getAllAttendByUserName(String userName) {
+        List<StartAttend> list = new ArrayList<>();
         try {
-            String sql = "INSERT INTO [AssignmentDB].[dbo].[ATTENND]\n"
+            String sql = "SELECT Top(1) * from STARTATTEN\n"
+                    + "where username = ?\n"
+                    + "ORDER BY start_time DESC";
+            Connection conn = new DBContext().getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, userName);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                StartAttend attend = new StartAttend();
+                attend.setId(rs.getInt(1));
+                attend.setUserName(rs.getString(2));
+                attend.setStartTime(rs.getString(3));
+                attend.setDate(rs.getString(4));
+                list.add(attend);
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(AttendDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+    }
+
+    public void insertInAttend2(String userName, String endTime) {
+        try {
+            String sql = "INSERT INTO [AssignmentDB].[dbo].[ENDATTEN]\n"
                     + "           ([username]\n"
-                    + "           ,[end_time])\n"
+                    + "           ,[end_time]\n"
+                    + "           ,[Date])\n"
                     + "     VALUES\n"
-                    + "           (?,?)";
+                    + "           (?,?,GETDATE())";
 
             //Mở kết nối
             Connection conn = new DBContext().getConnection();
 
             //Đưa câu lệnh sql vào prepare để chuẩn bị thực thi
             PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setString(1, atten.getUserName());
-            ps.setString(2, atten.getEndTime());
+            ps.setString(1, userName);
+            ps.setString(2, endTime);
 
             //Thực thi và trả về kết quả
             ps.executeUpdate();
@@ -65,6 +94,30 @@ public class AttendDAO {
         } catch (Exception ex) {
             Logger.getLogger(AttendDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    public List<EndAttend> getAllAttendByUserName2(String userName) {
+        List<EndAttend> list = new ArrayList<>();
+        try {
+            String sql = "SELECT Top(1) * from ENDATTEN\n"
+                    + "where username = ?\n"
+                    + " ORDER BY end_time DESC";
+            Connection conn = new DBContext().getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, userName);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                EndAttend attend = new EndAttend();
+                attend.setId(rs.getInt(1));
+                attend.setUserName(rs.getString(2));
+                attend.setEndTime(rs.getString(3));
+                attend.setDate(rs.getString(4));
+                list.add(attend);
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(AttendDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
     }
 
 }

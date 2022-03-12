@@ -7,20 +7,21 @@ package controller;
 
 import dao.AttendDAO;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import model.Account;
-import model.Atten;
-import model.Attend;
+import model.EndAttend;
 
 /**
  *
  * @author Apple
  */
-public class UpdateTimeController extends HttpServlet {
+public class AttendanceControl extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,17 +35,19 @@ public class UpdateTimeController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-       HttpSession session = request.getSession();
+         HttpSession session = request.getSession();
        Account a = (Account) session.getAttribute("acc");
        String userName= a.getUsername();
        String endTime = request.getParameter("endTime");
-       Atten atten = new Atten(0, userName, endTime);
        AttendDAO attendDAO = new AttendDAO();
-       attendDAO.insertInAttend2(atten);
-       response.sendRedirect("home");
+       attendDAO.insertInAttend2(userName, endTime);
+       
+        List<EndAttend> listEnd = attendDAO.getAllAttendByUserName2(userName);
+        request.setAttribute("listEnd", listEnd);
+        request.getRequestDispatcher("home").forward(request, response);
        
     }
-    
+
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.

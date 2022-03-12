@@ -7,14 +7,14 @@ package controller;
 
 import dao.AttendDAO;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import model.Account;
-import model.Attend;
+import model.StartAttend;
 
 /**
  *
@@ -38,11 +38,12 @@ public class AttendanceController extends HttpServlet {
        Account a = (Account) session.getAttribute("acc");
        String userName= a.getUsername();
        String startTime = request.getParameter("startTime");
-       Attend attend = new Attend(0, userName, startTime);
        AttendDAO attendDAO = new AttendDAO();
-       attendDAO.insertInAttend(attend);
-       response.sendRedirect("home");
+       attendDAO.insertInAttend(userName,startTime);
        
+       List<StartAttend> listAttends = attendDAO.getAllAttendByUserName(userName);
+       request.setAttribute("listAttends", listAttends);
+       request.getRequestDispatcher("home").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

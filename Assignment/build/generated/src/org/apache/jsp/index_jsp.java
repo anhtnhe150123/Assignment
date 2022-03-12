@@ -185,7 +185,9 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        </div>\n");
       out.write("        <div id=\"layoutSidenav_content\">\n");
       out.write("            <main>\n");
-      out.write("                <form action=\"attendance\" method=\"POST\">\n");
+      out.write("                \n");
+      out.write("                \n");
+      out.write("                <form action=\"attendance\">\n");
       out.write("                    <div class=\"container-fluid px-4\">\n");
       out.write("                    <h1 class=\"mt-4\">Dashboard</h1>\n");
       out.write("                    <ol class=\"breadcrumb mb-4\">\n");
@@ -195,69 +197,23 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                        <div class=\"col-xl-4 col-md-4\">\n");
       out.write("                            <button type=\"button\" class=\"btn btn-outline-success\" onclick=\"date()\">Start check</button>\n");
       out.write("                        </div>\n");
-      out.write("\n");
       out.write("                        <div class=\"col-xl-4 col-md-4\">\n");
-      out.write("                            <button type=\"button\" class=\"btn btn-outline-danger\" onclick=\"date2()\">End check</button>\n");
+      out.write("                        <input id=\"hvn\" type=\"text\" name=\"startTime\">\n");
       out.write("                        </div>\n");
-      out.write("                    </div>\n");
-      out.write("                    <hr>\n");
-      out.write("                    <div class=\"row\">\n");
-      out.write("                    <div class=\"col-xl-4 col-md-4\">\n");
-      out.write("                        <input id=\"hvn\" type=\"datetime\" name=\"startTime\">\n");
-      out.write("                    </div>\n");
-      out.write("                    <div class=\"col-xl-4 col-md-4\">\n");
-      out.write("                        <input id=\"hvn1\" type=\"datetime\" name=\"endTime\">\n");
-      out.write("                    </div>\n");
-      out.write("                    <div class=\"col-xl-4 col-md-4\">\n");
+      out.write("                        <div class=\"col-xl-4 col-md-4\">\n");
       out.write("                        <input type=\"submit\" value=\"SEND\" class=\"btn btn-outline-primary\">\n");
       out.write("                    </div> \n");
       out.write("                    </div>\n");
-      out.write("            \n");
-      out.write("                    \n");
-      out.write("                    <script>\n");
-      out.write("                        function date() {\n");
-      out.write("\n");
-      out.write("                            var today = new Date();\n");
-      out.write("                            var date = today.getDate() + '-' + (today.getMonth() + 1) + '-' + today.getFullYear();\n");
-      out.write("                            var time = today.getHours() + \":\" + today.getMinutes() + \":\" + today.getSeconds();\n");
-      out.write("                            var dateTime = date + ' ' + time;\n");
-      out.write("\n");
-      out.write("                            document.getElementById(\"hvn\").value = dateTime;\n");
-      out.write("                        };\n");
-      out.write("                        function date2() {\n");
-      out.write("\n");
-      out.write("                            var today = new Date();\n");
-      out.write("                            var date = today.getDate() + '-' + (today.getMonth() + 1) + '-' + today.getFullYear();\n");
-      out.write("                            var time = today.getHours() + \":\" + today.getMinutes() + \":\" + today.getSeconds();\n");
-      out.write("                            var dateTime = date + ' ' + time;\n");
-      out.write("\n");
-      out.write("                            document.getElementById(\"hvn1\").value = dateTime;\n");
-      out.write("                        };\n");
-      out.write("                    </script>\n");
-      out.write("                    \n");
-      out.write("                    <br>\n");
-      out.write("                    <hr>\n");
-      out.write("                    <div class=\"card mb-4\">\n");
-      out.write("                        <div class=\"card-header\">\n");
-      out.write("                            <i class=\"fas fa-table me-1\"></i>\n");
-      out.write("                            EMPLOYEE TABLE\n");
-      out.write("                        </div>\n");
+      out.write("                    <div class=\"card mb-4\" style=\"margin-top: 20px\">\n");
       out.write("                        <div class=\"card-body\">\n");
-      out.write("                            <table id=\"datatablesSimple\">\n");
+      out.write("                            <table class=\"table\">\n");
       out.write("                                <thead>\n");
       out.write("                                    <tr>\n");
       out.write("                                        <th>User Name</th>\n");
-      out.write("                                        <th>Start time</th>\n");
-      out.write("                                        <th>End time</th>\n");
+      out.write("                                        <th>Time</th>\n");
+      out.write("                                        <th>Date</th>\n");
       out.write("                                    </tr>\n");
       out.write("                                </thead>\n");
-      out.write("                                <tfoot>\n");
-      out.write("                                    <tr>\n");
-      out.write("                                        <th>User Name</th>\n");
-      out.write("                                        <th>Start time</th>\n");
-      out.write("                                        <th>End time</th>\n");
-      out.write("                                    </tr>\n");
-      out.write("                                </tfoot>\n");
       out.write("                                <tbody>\n");
       out.write("                                    ");
       if (_jspx_meth_c_forEach_0(_jspx_page_context))
@@ -267,8 +223,67 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                            </table>\n");
       out.write("                        </div>\n");
       out.write("                    </div>\n");
+      out.write("                    </div>\n");
+      out.write("                    </form>\n");
+      out.write("                <a href=\"detail\">View details</a>\n");
+      out.write("                    <br>\n");
+      out.write("                    <hr>\n");
+      out.write("                    <br>\n");
+      out.write("                    \n");
+      out.write("                <form action=\"dance\">\n");
+      out.write("                    <div class=\"container-fluid px-4\">\n");
+      out.write("                  <div class=\"row\">\n");
+      out.write("                        <div class=\"col-xl-4 col-md-4\">\n");
+      out.write("                            <button type=\"button\" class=\"btn btn-outline-success\" onclick=\"date2()\">End check</button>\n");
+      out.write("                        </div>\n");
+      out.write("                        <div class=\"col-xl-4 col-md-4\">\n");
+      out.write("                        <input id=\"hvn1\" type=\"text\" name=\"endTime\">\n");
+      out.write("                        </div>\n");
+      out.write("                        <div class=\"col-xl-4 col-md-4\">\n");
+      out.write("                        <input type=\"submit\" value=\"SEND\" class=\"btn btn-outline-primary\">\n");
+      out.write("                    </div> \n");
+      out.write("                    </div>\n");
+      out.write("                    <div class=\"card mb-4\" style=\"margin-top: 20px\">\n");
+      out.write("                        <div class=\"card-body\">\n");
+      out.write("                            <table class=\"table\">\n");
+      out.write("                                <thead>\n");
+      out.write("                                    <tr>\n");
+      out.write("                                        <th>User Name</th>\n");
+      out.write("                                        <th>Time</th>\n");
+      out.write("                                        <th>Date</th>\n");
+      out.write("                                    </tr>\n");
+      out.write("                                </thead>\n");
+      out.write("                                <tbody>\n");
+      out.write("                                    ");
+      if (_jspx_meth_c_forEach_1(_jspx_page_context))
+        return;
+      out.write("\n");
+      out.write("                                </tbody>\n");
+      out.write("                            </table>\n");
+      out.write("                        </div>\n");
+      out.write("                    </div>\n");
+      out.write("                    </div>\n");
+      out.write("                    </form>\n");
+      out.write("                <a href=\"detail\">View details</a>     \n");
+      out.write("                    <script>\n");
+      out.write("                        function date() {\n");
+      out.write("\n");
+      out.write("                            var today = new Date();\n");
+      out.write("                            var time = today.getHours() + \":\" + today.getMinutes() + \":\" + today.getSeconds();\n");
+      out.write("                            var dateTime = time;\n");
+      out.write("\n");
+      out.write("                            document.getElementById(\"hvn\").value = dateTime;\n");
+      out.write("                        };\n");
+      out.write("                        function date2() {\n");
+      out.write("\n");
+      out.write("                            var today = new Date();\n");
+      out.write("                            var time = today.getHours() + \":\" + today.getMinutes() + \":\" + today.getSeconds();\n");
+      out.write("                            var dateTime = time;\n");
+      out.write("\n");
+      out.write("                            document.getElementById(\"hvn1\").value = dateTime;\n");
+      out.write("                        };\n");
+      out.write("                    </script>\n");
       out.write("                </div>\n");
-      out.write("                </form>\n");
       out.write("            </main>\n");
       out.write("        </div>\n");
       out.write("    </div>\n");
@@ -304,8 +319,8 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_forEach_0 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _jspx_tagPool_c_forEach_var_items.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
     _jspx_th_c_forEach_0.setPageContext(_jspx_page_context);
     _jspx_th_c_forEach_0.setParent(null);
-    _jspx_th_c_forEach_0.setItems((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${listEmployees}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
-    _jspx_th_c_forEach_0.setVar("E");
+    _jspx_th_c_forEach_0.setItems((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${listAttends}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
+    _jspx_th_c_forEach_0.setVar("A");
     int[] _jspx_push_body_count_c_forEach_0 = new int[] { 0 };
     try {
       int _jspx_eval_c_forEach_0 = _jspx_th_c_forEach_0.doStartTag();
@@ -313,17 +328,18 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
         do {
           out.write("\n");
           out.write("                                        <tr>\n");
+          out.write("\n");
           out.write("                                            <td>");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${E.id}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${A.userName}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("</td>\n");
           out.write("                                            <td>");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${E.name}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${A.startTime}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("</td>\n");
           out.write("                                            <td>");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${E.dateBirth}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${A.date}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("</td>\n");
           out.write("                                        </tr>\n");
-          out.write("                                    ");
+          out.write("                                        ");
           int evalDoAfterBody = _jspx_th_c_forEach_0.doAfterBody();
           if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
             break;
@@ -339,6 +355,54 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
     } finally {
       _jspx_th_c_forEach_0.doFinally();
       _jspx_tagPool_c_forEach_var_items.reuse(_jspx_th_c_forEach_0);
+    }
+    return false;
+  }
+
+  private boolean _jspx_meth_c_forEach_1(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:forEach
+    org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_forEach_1 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _jspx_tagPool_c_forEach_var_items.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
+    _jspx_th_c_forEach_1.setPageContext(_jspx_page_context);
+    _jspx_th_c_forEach_1.setParent(null);
+    _jspx_th_c_forEach_1.setItems((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${listEnd}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
+    _jspx_th_c_forEach_1.setVar("E");
+    int[] _jspx_push_body_count_c_forEach_1 = new int[] { 0 };
+    try {
+      int _jspx_eval_c_forEach_1 = _jspx_th_c_forEach_1.doStartTag();
+      if (_jspx_eval_c_forEach_1 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+        do {
+          out.write("\n");
+          out.write("                                        <tr>\n");
+          out.write("\n");
+          out.write("                                            <td>");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${E.userName}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("</td>\n");
+          out.write("                                            <td>");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${E.endTime}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("</td>\n");
+          out.write("                                            <td>");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${E.date}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("</td>\n");
+          out.write("                                        </tr>\n");
+          out.write("                                    ");
+          int evalDoAfterBody = _jspx_th_c_forEach_1.doAfterBody();
+          if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+            break;
+        } while (true);
+      }
+      if (_jspx_th_c_forEach_1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+        return true;
+      }
+    } catch (Throwable _jspx_exception) {
+      while (_jspx_push_body_count_c_forEach_1[0]-- > 0)
+        out = _jspx_page_context.popBody();
+      _jspx_th_c_forEach_1.doCatch(_jspx_exception);
+    } finally {
+      _jspx_th_c_forEach_1.doFinally();
+      _jspx_tagPool_c_forEach_var_items.reuse(_jspx_th_c_forEach_1);
     }
     return false;
   }
