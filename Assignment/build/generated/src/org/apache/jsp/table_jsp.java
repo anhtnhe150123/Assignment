@@ -271,7 +271,7 @@ public final class table_jsp extends org.apache.jasper.runtime.HttpJspBase
           out.write("                                            <tr>\n");
           out.write("                                                <td><img src=\"");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${E.imgUrl}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-          out.write("\" width=\"80\"></td>\n");
+          out.write("\" width=\"100\"></td>\n");
           out.write("                                                <td>");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${E.id}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("</td>\n");

@@ -10,21 +10,21 @@ package model;
  * @author Apple
  */
 public class Account {
+    public static final String ADMIN="ADMIN";
+    public static final String EMPLOY="EMPLOY";
     private int uId;
     private String username;
     private String password;
-    private int isEmploy;
-    private int isAdmin;
+    private String role;
 
     public Account() {
     }
 
-    public Account(int uId, String username, String password, int isEmploy, int isAdmin) {
+    public Account(int uId, String username, String password, String role) {
         this.uId = uId;
         this.username = username;
         this.password = password;
-        this.isEmploy = isEmploy;
-        this.isAdmin = isAdmin;
+        this.role = role;
     }
 
     public int getuId() {
@@ -51,27 +51,16 @@ public class Account {
         this.password = password;
     }
 
-    public int getIsEmploy() {
-        return isEmploy;
+    public String getRole() {
+        return role;
     }
 
-    public void setIsEmploy(int isEmploy) {
-        this.isEmploy = isEmploy;
-    }
-
-    public int getIsAdmin() {
-        return isAdmin;
-    }
-
-    public void setIsAdmin(int isAdmin) {
-        this.isAdmin = isAdmin;
+    public void setRole(String role) {
+        this.role = role;
     }
 
     @Override
     public String toString() {
-        return "Account{" + "uId=" + uId + ", username=" + username + ", password=" + password + ", isEmploy=" + isEmploy + ", isAdmin=" + isAdmin + '}';
+        return "Account{" + "uId=" + uId + ", username=" + username + ", password=" + password + ", role=" + role + '}';
     }
-
-    
-    
 }

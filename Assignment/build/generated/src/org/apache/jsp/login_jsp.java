@@ -87,7 +87,7 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                                <label class=\"form-check-label\" for=\"inputRememberPassword\">Remember Password</label>\n");
       out.write("                                            </div>\n");
       out.write("                                            <div class=\"d-flex align-items-center justify-content-between mt-4 mb-0\">\n");
-      out.write("                                                <a class=\"small\" href=\"password.html\">Forgot Password?</a>\n");
+      out.write("                                                <a class=\"small\" href=\"register.jsp\">Create Account</a>\n");
       out.write("                                                <button class=\"btn btn-primary\" type=\"submit\">Login</button>\n");
       out.write("                                            </div>\n");
       out.write("                                        </form>\n");

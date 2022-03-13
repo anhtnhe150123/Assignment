@@ -56,6 +56,18 @@
         <servlet-name>AttendanceControl</servlet-name>
         <servlet-class>controller.AttendanceControl</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DetailStartControl</servlet-name>
+        <servlet-class>controller.DetailStartControl</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdminController</servlet-name>
+        <servlet-class>controller.AdminController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>HistoryStartController</servlet-name>
+        <servlet-class>controller.HistoryStartController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeController</servlet-name>
         <url-pattern>/home</url-pattern>
@@ -111,6 +123,26 @@
     <servlet-mapping>
         <servlet-name>AttendanceControl</servlet-name>
         <url-pattern>/dance</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DetailStartControl</servlet-name>
+        <url-pattern>/detail-start</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminController</servlet-name>
+        <url-pattern>/admin/dashboard</url-pattern>
+    </servlet-mapping>
+    <filter-mapping>
+        <filter-name>AuthencationFilter</filter-name>
+        <url-pattern/>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>AuthorationFilter</filter-name>
+        <url-pattern/>
+    </filter-mapping>
+    <servlet-mapping>
+        <servlet-name>HistoryStartController</servlet-name>
+        <url-pattern>/stahis</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

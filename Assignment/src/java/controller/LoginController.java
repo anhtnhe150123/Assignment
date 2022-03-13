@@ -64,16 +64,32 @@ public class LoginController extends HttpServlet {
         //processRequest(request, response);
         //b1: get username, password from cookie
         Cookie arr[] = request.getCookies();
+        String username = null;
+        String password = null;
         if (arr != null) {
             for (Cookie cookie : arr) {
-                if (cookie.getName().equals("userC")) {
+                if (cookie.getName().equals("username")) {
+                    username = cookie.getValue();
                     request.setAttribute("username", cookie.getValue());
                 }
-                if (cookie.getName().equals("passC")) {
+                if (cookie.getName().equals("password")) {
+                    password = cookie.getValue();
                     request.setAttribute("password", cookie.getValue());
                 }
+                if (username != null && password != null) {
+                break;
+            }
             }
         }
+        if (username != null && password != null) {
+           Account account = new AccountDAO().login(username, password);
+            if (account != null) { //cookie hợp lệ
+                request.getSession().setAttribute("acc", account);
+                response.sendRedirect("home");
+                return;
+            }
+        }
+        
         //b2: set username, password vao login form
         request.getRequestDispatcher("login.jsp").forward(request, response);
     }
@@ -103,8 +119,8 @@ public class LoginController extends HttpServlet {
             session.setAttribute("acc", a);
 
             //luu account tren cookie
-            Cookie u = new Cookie("userC", username);
-            Cookie p = new Cookie("passC", password);
+            Cookie u = new Cookie("username", username);
+            Cookie p = new Cookie("password", password);
             u.setMaxAge(24 * 3600);
             if (remember != null) {
                 p.setMaxAge(24 * 3600);

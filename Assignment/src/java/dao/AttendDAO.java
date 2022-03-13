@@ -52,7 +52,7 @@ public class AttendDAO {
         try {
             String sql = "SELECT Top(1) * from STARTATTEN\n"
                     + "where username = ?\n"
-                    + "ORDER BY start_time DESC";
+                    + "ORDER BY id desc";
             Connection conn = new DBContext().getConnection();
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, userName);
@@ -101,7 +101,7 @@ public class AttendDAO {
         try {
             String sql = "SELECT Top(1) * from ENDATTEN\n"
                     + "where username = ?\n"
-                    + " ORDER BY end_time DESC";
+                    + "ORDER BY id desc";
             Connection conn = new DBContext().getConnection();
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, userName);
@@ -111,6 +111,30 @@ public class AttendDAO {
                 attend.setId(rs.getInt(1));
                 attend.setUserName(rs.getString(2));
                 attend.setEndTime(rs.getString(3));
+                attend.setDate(rs.getString(4));
+                list.add(attend);
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(AttendDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+    }
+
+    public List<StartAttend> getAllAttendsByUserName(String userName) {
+        List<StartAttend> list = new ArrayList<>();
+        try {
+            String sql = "SELECT * from STARTATTEN\n"
+                    + "where username = ?\n"
+                    + "ORDER BY id desc";
+            Connection conn = new DBContext().getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, userName);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                StartAttend attend = new StartAttend();
+                attend.setId(rs.getInt(1));
+                attend.setUserName(rs.getString(2));
+                attend.setStartTime(rs.getString(3));
                 attend.setDate(rs.getString(4));
                 list.add(attend);
             }

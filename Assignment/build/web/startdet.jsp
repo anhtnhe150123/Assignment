@@ -1,11 +1,9 @@
 <%-- 
-    Document   : table
-    Created on : Feb 25, 2022, 7:39:09 AM
+    Document   : detail-start
+    Created on : Mar 13, 2022, 6:09:50 PM
     Author     : Apple
 --%>
 
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -74,7 +72,7 @@
                                 </nav>
                             </div>
                             <div class="sb-sidenav-menu-heading">Addons</div>
-                            <a class="nav-link" href="TableController.java">
+                            <a class="nav-link" href="table">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 Tables
                             </a>
@@ -86,10 +84,10 @@
                                 <div class="small">Logged in as: ${sessionScope.acc.username}</button</div>
                             </c:when>
                             <c:otherwise>
-                                <a href="login" class="btn btn-outline-primary ms-lg-2">Login</a>
                             </c:otherwise>
                         </c:choose>
                     </div>
+            </div>
                 </nav>
             </div>
             <div id="layoutSidenav_content">
@@ -100,14 +98,6 @@
                             <li class="breadcrumb-item"><a href="home">Dashboard</a></li>
                             <li class="breadcrumb-item active">Tables</li>
                         </ol>
-                        <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item">
-                                <a href="create" class="btn btn-dark btn-md">
-                                    <i class="fa fa-user-plus"></i> Create new Employee
-                                </a>
-                            </li>
-                        </ol>
-
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table me-1"></i>
@@ -117,47 +107,19 @@
                                 <table id="datatablesSimple">
                                     <thead>
                                         <tr>
-                                            <th>Employee IMG</th>
-                                            <th>Employee ID</th>
-                                            <th>Full name</th>
-                                            <th>Date of birth</th>
-                                            <th>Gender</th>
-                                            <th>Position</th>
-                                            <th>Start date</th>
-                                            <th>Option</th>
+                                            <th>#</th>
+                                            <th>User name</th>
+                                            <th>Start time</th>
+                                            <th>Date</th>
                                         </tr>
                                     </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>Employee IMG</th>
-                                            <th>Employee ID</th>
-                                            <th>Full name</th>
-                                            <th>Date of birth</th>
-                                            <th>Gender</th>
-                                            <th>Position</th>
-                                            <th>Option</th>
-                                        </tr>
-                                    </tfoot>
                                     <tbody>
-                                        <c:forEach items="${listEmployees}" var="E"> 
+                                        <c:forEach items="${listAttends}" var="K"> 
                                             <tr>
-                                                <td><img src="${E.imgUrl}" width="100"></td>
-                                                <td>${E.id}</td>
-                                                <td>${E.name}</td>
-                                                <td>${E.dob}</td>
-                                                <td>${E.gender}</td>
-                                                <td>${E.positionName}</td>
-                                                <td>${E.startDate}</td>              
-                                                <td><a href="detail?id=${E.id}">
-                                                        <i class="fa fa-eye"></i>
-                                                    </a> 
-                                                    <a href="update?id=${E.id}">
-                                                        <i class="fa fa-edit"></i>
-                                                    </a> 
-                                                    <a href="delete?id=${E.id}">
-                                                        <i class="fa fa-trash"></i>
-                                                    </a>
-                                                </td>
+                                                <td>${K.id}</td>
+                                                <td>${K.userName}</td>
+                                                <td>${K.startTime}</td>
+                                                <td>${K.date}</td>
                                             </tr>
                                         </c:forEach>
                                     </tbody>
@@ -166,18 +128,6 @@
                         </div>
                     </div>
                 </main>
-                <footer class="py-4 bg-light mt-auto">
-                    <div class="container-fluid px-4">
-                        <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; Your Website 2021</div>
-                            <div>
-                                <a href="#">Privacy Policy</a>
-                                &middot;
-                                <a href="#">Terms &amp; Conditions</a>
-                            </div>
-                        </div>
-                    </div>
-                </footer>
             </div>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
