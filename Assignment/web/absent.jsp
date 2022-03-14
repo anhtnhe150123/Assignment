@@ -1,10 +1,9 @@
 <%-- 
-    Document   : table
-    Created on : Feb 25, 2022, 7:39:09 AM
+    Document   : absent
+    Created on : Mar 14, 2022, 4:30:54 PM
     Author     : Apple
 --%>
 
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -80,16 +79,7 @@
                             </a>
                         </div>
                     </div>
-                    <div class="sb-sidenav-footer">
-                        <c:choose>
-                            <c:when test="${sessionScope.acc != null}">
-                                <div class="small">Logged in as: ${sessionScope.acc.username}</button</div>
-                            </c:when>
-                            <c:otherwise>
-                                <a href="login" class="btn btn-outline-primary ms-lg-2">Login</a>
-                            </c:otherwise>
-                        </c:choose>
-                    </div>
+                
                 </nav>
             </div>
             <div id="layoutSidenav_content">
@@ -102,8 +92,8 @@
                         </ol>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item">
-                                <a href="create" class="btn btn-dark btn-md">
-                                    <i class="fa fa-user-plus"></i> Create new Employee
+                                <a href="absent" class="btn btn-dark btn-md">
+                                    <i class="fa fa-user-plus"></i> Insert Employee
                                 </a>
                             </li>
                         </ol>
@@ -117,56 +107,51 @@
                                 <table id="datatablesSimple">
                                     <thead>
                                         <tr>
-                                            <th>Employee IMG</th>
+                                            <th>#</th>
+                                            <th>Image</th>
                                             <th>Employee ID</th>
                                             <th>Full name</th>
-                                            <th>Date of birth</th>
-                                            <th>Gender</th>
-                                            <th>Position</th>
-                                            <th>Start date</th>
-                                            <th>Option</th>
+                                            <th>Number day off</th>
+                                            <th>Start</th>
+                                            <th>From</th>
+                                            <th>Delete</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
-                                            <th>Employee IMG</th>
+                                            <th>#</th>
+                                            <th>Image</th>
                                             <th>Employee ID</th>
                                             <th>Full name</th>
-                                            <th>Date of birth</th>
-                                            <th>Gender</th>
-                                            <th>Position</th>
-                                            <th>Option</th>
+                                            <th>Number day off</th>
+                                            <th>Start</th>
+                                            <th>From</th>
+                                            <th>Delete</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
-                                        <c:forEach items="${listEmployees}" var="E"> 
+                                    <c:forEach items="${listAbsents}" var="I">
                                             <tr>
-                                                <td><img src="${E.imgUrl}" width="100"></td>
-                                                <td>${E.id}</td>
-                                                <td>${E.name}</td>
-                                                <td>${E.dob}</td>
-                                                <td>${E.gender}</td>
-                                                <td>${E.positionName}</td>
-                                                <td>${E.startDate}</td>              
-                                                <td><a href="detail?id=${E.id}">
-                                                        <i class="fa fa-eye"></i>
-                                                    </a> 
-                                                    <a href="update?id=${E.id}">
-                                                        <i class="fa fa-edit"></i>
-                                                    </a> 
-                                                    <a href="delete?id=${E.id}">
+                                                <td>${I.stt}</td>
+                                                <td><img src="${I.imgUrl}" width="100"></td>
+                                                <td>${I.id}</td>
+                                                <td>${I.fullName}</td>
+                                                <td>${I.dayOff}</td>
+                                                <td>${I.start}</td>
+                                                <td>${I.end}</td>
+                                                <td> 
+                                                    <a href="deleabs?id=${I.id}">
                                                         <i class="fa fa-trash"></i>
                                                     </a>
                                                 </td>
                                             </tr>
-                                        </c:forEach>
+                                            </c:forEach>
                                     </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
                 </main>
-                
             </div>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>

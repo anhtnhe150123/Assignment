@@ -37,8 +37,8 @@ public class AccountDAO {
     }
 
     public Account checkAccountExist(String username) {
-        String query = "select * from account\n"
-                + "where [username] = ?\n";
+        String query = "select * from ACCOUNT\n"
+                + "where username = ?";
         try {
             Connection conn = new DBContext().getConnection();
             PreparedStatement ps = conn.prepareStatement(query);
@@ -55,7 +55,7 @@ public class AccountDAO {
 
     public void signup(String username, String password) {
         String query = "insert into ACCOUNT\n"
-                + "values(?, ?, EMPLOY)";
+                + "values(?, ?, 'EMPLOY')";
         try {
             Connection conn = new DBContext().getConnection();
             PreparedStatement ps = conn.prepareStatement(query);

@@ -68,6 +68,30 @@
         <servlet-name>HistoryStartController</servlet-name>
         <servlet-class>controller.HistoryStartController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AbsentController</servlet-name>
+        <servlet-class>controller.AbsentController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AbsentHomeController</servlet-name>
+        <servlet-class>controller.AbsentHomeController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteAbsentController</servlet-name>
+        <servlet-class>controller.DeleteAbsentController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UsalaryHomeController</servlet-name>
+        <servlet-class>controller.UsalaryHomeController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UsalaryController</servlet-name>
+        <servlet-class>controller.UsalaryController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateUsalaryController</servlet-name>
+        <servlet-class>controller.UpdateUsalaryController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeController</servlet-name>
         <url-pattern>/home</url-pattern>
@@ -143,6 +167,30 @@
     <servlet-mapping>
         <servlet-name>HistoryStartController</servlet-name>
         <url-pattern>/stahis</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AbsentController</servlet-name>
+        <url-pattern>/absent</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AbsentHomeController</servlet-name>
+        <url-pattern>/abhome</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteAbsentController</servlet-name>
+        <url-pattern>/deleabs</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UsalaryHomeController</servlet-name>
+        <url-pattern>/usahome</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UsalaryController</servlet-name>
+        <url-pattern>/usalary</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateUsalaryController</servlet-name>
+        <url-pattern>/updateusa</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
