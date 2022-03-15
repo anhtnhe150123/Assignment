@@ -1,6 +1,6 @@
 <%-- 
-    Document   : detail-start
-    Created on : Mar 13, 2022, 6:09:50 PM
+    Document   : enddet
+    Created on : Mar 16, 2022, 1:56:46 AM
     Author     : Apple
 --%>
 
@@ -115,12 +115,12 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <c:forEach items="${listAttends}" var="K"> 
+                                        <c:forEach items="${list}" var="L"> 
                                             <tr>
-                                                <td>${K.id}</td>
-                                                <td>${K.userName}</td>
-                                                <td>${K.startTime}</td>
-                                                <td>${K.date}</td>
+                                                <td>${L.id}</td>
+                                                <td>${L.userName}</td>
+                                                <td>${L.endTime}</td>
+                                                <td>${L.date}</td>
                                             </tr>
                                         </c:forEach>
                                     </tbody>

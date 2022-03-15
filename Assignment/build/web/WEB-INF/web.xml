@@ -92,6 +92,10 @@
         <servlet-name>UpdateUsalaryController</servlet-name>
         <servlet-class>controller.UpdateUsalaryController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>HistoryEndController</servlet-name>
+        <servlet-class>controller.HistoryEndController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeController</servlet-name>
         <url-pattern>/home</url-pattern>
@@ -191,6 +195,10 @@
     <servlet-mapping>
         <servlet-name>UpdateUsalaryController</servlet-name>
         <url-pattern>/updateusa</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>HistoryEndController</servlet-name>
+        <url-pattern>/endhis</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

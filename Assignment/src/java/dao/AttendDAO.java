@@ -144,4 +144,28 @@ public class AttendDAO {
         return list;
     }
 
+    public List<EndAttend> getAll(String userName) {
+        List<EndAttend> list = new ArrayList<>();
+        try {
+            String sql = "SELECT * from ENDATTEN\n"
+                    + "where username = ?\n"
+                    + "ORDER BY id desc";
+            Connection conn = new DBContext().getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, userName);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                EndAttend attend = new EndAttend();
+                attend.setId(rs.getInt(1));
+                attend.setUserName(rs.getString(2));
+                attend.setEndTime(rs.getString(3));
+                attend.setDate(rs.getString(4));
+                list.add(attend);
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(AttendDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+    }
+
 }

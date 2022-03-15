@@ -137,11 +137,10 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="stahis">View details</a>
                     </form>
-                    <br>
-                    <hr>
-                    <br>
+                    <div class="container-fluid px-4" style="text-align: right">
+                        <a href="stahis">View details</a>
+                    </div>
                     <form action="dance" method="POST">
                         <div class="container-fluid px-4">
                             <div class="row">
@@ -181,9 +180,8 @@
                         </div>
                     </form>
                     <div class="container-fluid px-4" style="text-align: right">
-                        <a href="detail">View details</a>
+                        <a href="endhis">View details</a>
                     </div>
-
                     <script>
                         function date() {
 
@@ -204,8 +202,6 @@
                         }
                         ;
                     </script>
-                    <br>
-                    <hr>
                 </main>  
             </div>
 
