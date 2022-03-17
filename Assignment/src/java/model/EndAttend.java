@@ -14,15 +14,17 @@ public class EndAttend {
     private String userName;
     private String endTime;
     private String date;
+    private int total;
 
     public EndAttend() {
     }
 
-    public EndAttend(int id, String userName, String endTime, String date) {
+    public EndAttend(int id, String userName, String endTime, String date, int total) {
         this.id = id;
         this.userName = userName;
         this.endTime = endTime;
         this.date = date;
+        this.total = total;
     }
 
     public int getId() {
@@ -57,10 +59,18 @@ public class EndAttend {
         this.date = date;
     }
 
-    @Override
-    public String toString() {
-        return "EndAttend{" + "id=" + id + ", userName=" + userName + ", endTime=" + endTime + ", date=" + date + '}';
+    public int getTotal() {
+        return total;
     }
 
-   
+    public void setTotal(int total) {
+        this.total = total;
+    }
+
+    @Override
+    public String toString() {
+        return "EndAttend{" + "id=" + id + ", userName=" + userName + ", endTime=" + endTime + ", date=" + date + ", total=" + total + '}';
+    }
+
+    
 }

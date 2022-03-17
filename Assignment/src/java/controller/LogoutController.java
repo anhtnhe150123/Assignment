@@ -7,6 +7,7 @@ package controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -32,6 +33,13 @@ public class LogoutController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         HttpSession session = request.getSession();
         session.removeAttribute("acc");
+        Cookie[] cookies = request.getCookies();
+            for (Cookie cooky : cookies) {
+                if (cooky.getName().equals("password")) {
+                    cooky.setMaxAge(0);
+                    response.addCookie(cooky);
+                }
+            }
         response.sendRedirect("login");
     }
 

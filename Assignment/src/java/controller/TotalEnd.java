@@ -14,13 +14,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.EndAttend;
-import model.StartAttend;
 
 /**
  *
  * @author Apple
  */
-public class AdminController extends HttpServlet {
+public class TotalEnd extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,13 +32,11 @@ public class AdminController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-            AttendDAO attendDAO = new AttendDAO();
-            List<StartAttend> listSAttends = attendDAO.getAllStartAttend();
-            request.setAttribute("listSAttends", listSAttends);
-            List<EndAttend> listEAttends = attendDAO.getAllEndAttend();
-            request.setAttribute("listEAttends", listEAttends);
-            request.getRequestDispatcher("../dashboard.jsp").forward(request, response);
+        AttendDAO attendDAO = new AttendDAO();
         
+        List<EndAttend> listEAttends = attendDAO.getAllEndAttends();
+        request.setAttribute("listEAttends", listEAttends);
+        request.getRequestDispatcher("totalend.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

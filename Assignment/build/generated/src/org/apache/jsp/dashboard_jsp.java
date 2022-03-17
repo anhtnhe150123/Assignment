@@ -4,7 +4,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
 
-public final class table_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class dashboard_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
@@ -64,7 +64,6 @@ public final class table_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("\n");
       out.write("\n");
-      out.write("\n");
       out.write("<!DOCTYPE html>\n");
       out.write("<html lang=\"en\">\n");
       out.write("\n");
@@ -118,21 +117,8 @@ public final class table_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                <div class=\"sb-nav-link-icon\"><i class=\"fas fa-tachometer-alt\"></i></div>\n");
       out.write("                                Dashboard\n");
       out.write("                            </a>\n");
-      out.write("                            <div class=\"sb-sidenav-menu-heading\">Interface</div>\n");
-      out.write("                            <a class=\"nav-link collapsed\" href=\"#\" data-bs-toggle=\"collapse\" data-bs-target=\"#collapsePages\"\n");
-      out.write("                               aria-expanded=\"false\" aria-controls=\"collapsePages\">\n");
-      out.write("                                <div class=\"sb-nav-link-icon\"><i class=\"fas fa-book-open\"></i></div>\n");
-      out.write("                                Pages\n");
-      out.write("                                <div class=\"sb-sidenav-collapse-arrow\"><i class=\"fas fa-angle-down\"></i></div>\n");
-      out.write("                            </a>\n");
-      out.write("                            <div class=\"collapse\" id=\"collapsePages\" aria-labelledby=\"headingTwo\"\n");
-      out.write("                                 data-bs-parent=\"#sidenavAccordion\">\n");
-      out.write("                                <nav class=\"sb-sidenav-menu-nested nav\">\n");
-      out.write("                                    <a class=\"nav-link\" href=\"password.html\">Change Password</a>\n");
-      out.write("                                </nav>\n");
-      out.write("                            </div>\n");
       out.write("                            <div class=\"sb-sidenav-menu-heading\">Addons</div>\n");
-      out.write("                            <a class=\"nav-link\" href=\"TableController.java\">\n");
+      out.write("                            <a class=\"nav-link\" href=\"table.java\">\n");
       out.write("                                <div class=\"sb-nav-link-icon\"><i class=\"fas fa-table\"></i></div>\n");
       out.write("                                Tables\n");
       out.write("                            </a>\n");
@@ -153,36 +139,28 @@ public final class table_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                        <ol class=\"breadcrumb mb-4\">\n");
       out.write("                            <li class=\"breadcrumb-item\"><a href=\"home\">Dashboard</a></li>\n");
       out.write("                            <li class=\"breadcrumb-item active\">Tables</li>\n");
-      out.write("                        </ol>  \n");
-      out.write("\n");
+      out.write("                        </ol>\n");
       out.write("                        <div class=\"card mb-4\">\n");
       out.write("                            <div class=\"card-header\">\n");
       out.write("                                <i class=\"fas fa-table me-1\"></i>\n");
-      out.write("                                EMPLOYEE TABLE\n");
+      out.write("                                TABLE EMPLOYEE GET TIME START\n");
       out.write("                            </div>\n");
       out.write("                            <div class=\"card-body\">\n");
       out.write("                                <table id=\"datatablesSimple\">\n");
       out.write("                                    <thead>\n");
       out.write("                                        <tr>\n");
-      out.write("                                            <th>Employee IMG</th>\n");
-      out.write("                                            <th>Employee ID</th>\n");
-      out.write("                                            <th>Full name</th>\n");
-      out.write("                                            <th>Date of birth</th>\n");
-      out.write("                                            <th>Gender</th>\n");
-      out.write("                                            <th>Position</th>\n");
-      out.write("                                            <th>Start date</th>\n");
-      out.write("                                            <th>Option</th>\n");
+      out.write("                                            <th>#</th>\n");
+      out.write("                                            <th>User name</th>\n");
+      out.write("                                            <th>Start time</th>\n");
+      out.write("                                            <th>Date</th>\n");
       out.write("                                        </tr>\n");
       out.write("                                    </thead>\n");
       out.write("                                    <tfoot>\n");
       out.write("                                        <tr>\n");
-      out.write("                                            <th>Employee IMG</th>\n");
-      out.write("                                            <th>Employee ID</th>\n");
-      out.write("                                            <th>Full name</th>\n");
-      out.write("                                            <th>Date of birth</th>\n");
-      out.write("                                            <th>Gender</th>\n");
-      out.write("                                            <th>Position</th>\n");
-      out.write("                                            <th>Option</th>\n");
+      out.write("                                            <th>#</th>\n");
+      out.write("                                            <th>User name</th>\n");
+      out.write("                                            <th>Start time</th>\n");
+      out.write("                                            <th>Date</th>\n");
       out.write("                                        </tr>\n");
       out.write("                                    </tfoot>\n");
       out.write("                                    <tbody>\n");
@@ -194,13 +172,49 @@ public final class table_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                </table>\n");
       out.write("                            </div>\n");
       out.write("                        </div>\n");
+      out.write("                        <div class=\"card mb-4\">\n");
+      out.write("                            <div class=\"card-header\">\n");
+      out.write("                                <i class=\"fas fa-table me-1\"></i>\n");
+      out.write("                                TABLE EMPLOYEE GET TIME END\n");
+      out.write("                            </div>\n");
+      out.write("                            <div class=\"card-body\">\n");
+      out.write("                                <table id=\"datatablesSimple\">\n");
+      out.write("                                    <thead>\n");
+      out.write("                                        <tr>\n");
+      out.write("                                            <th>#</th>\n");
+      out.write("                                            <th>User name</th>\n");
+      out.write("                                            <th>Start time</th>\n");
+      out.write("                                            <th>Date</th>\n");
+      out.write("                                        </tr>\n");
+      out.write("                                    </thead>\n");
+      out.write("                                    <tfoot>\n");
+      out.write("                                        <tr>\n");
+      out.write("                                            <th>#</th>\n");
+      out.write("                                            <th>User name</th>\n");
+      out.write("                                            <th>Start time</th>\n");
+      out.write("                                            <th>Date</th>\n");
+      out.write("                                        </tr>\n");
+      out.write("                                    </tfoot>\n");
+      out.write("                                    <tbody>\n");
+      out.write("                                        ");
+      if (_jspx_meth_c_forEach_1(_jspx_page_context))
+        return;
+      out.write("\n");
+      out.write("                                    </tbody>\n");
+      out.write("                                </table>\n");
+      out.write("                            </div>\n");
+      out.write("                        </div>\n");
       out.write("                    </div>\n");
       out.write("                </main>\n");
       out.write("                \n");
       out.write("            </div>\n");
       out.write("        </div>\n");
-      out.write("        <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js\" crossorigin=\"anonymous\"></script>\n");
+      out.write("        <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js\"\n");
+      out.write("        crossorigin=\"anonymous\"></script>\n");
       out.write("        <script src=\"js/scripts.js\"></script>\n");
+      out.write("        <script src=\"https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js\" crossorigin=\"anonymous\"></script>\n");
+      out.write("        <script src=\"assets/demo/chart-area-demo.js\"></script>\n");
+      out.write("        <script src=\"assets/demo/chart-bar-demo.js\"></script>\n");
       out.write("        <script src=\"https://cdn.jsdelivr.net/npm/simple-datatables@latest\" crossorigin=\"anonymous\"></script>\n");
       out.write("        <script src=\"js/datatables-simple-demo.js\"></script>\n");
       out.write("    </body>\n");
@@ -317,8 +331,8 @@ public final class table_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_forEach_0 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _jspx_tagPool_c_forEach_var_items.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
     _jspx_th_c_forEach_0.setPageContext(_jspx_page_context);
     _jspx_th_c_forEach_0.setParent(null);
-    _jspx_th_c_forEach_0.setItems((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${listEmployees}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
-    _jspx_th_c_forEach_0.setVar("E");
+    _jspx_th_c_forEach_0.setItems((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${listSAttends}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
+    _jspx_th_c_forEach_0.setVar("S");
     int[] _jspx_push_body_count_c_forEach_0 = new int[] { 0 };
     try {
       int _jspx_eval_c_forEach_0 = _jspx_th_c_forEach_0.doStartTag();
@@ -326,43 +340,21 @@ public final class table_jsp extends org.apache.jasper.runtime.HttpJspBase
         do {
           out.write(" \n");
           out.write("                                            <tr>\n");
-          out.write("                                                <td><img src=\"");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${E.imgUrl}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-          out.write("\" width=\"100\"></td>\n");
           out.write("                                                <td>");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${E.id}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${S.id}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("</td>\n");
           out.write("                                                <td>");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${E.name}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${S.userName}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("</td>\n");
           out.write("                                                <td>");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${E.dob}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${S.startTime}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("</td>\n");
           out.write("                                                <td>");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${E.gender}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${S.startTime}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("</td>\n");
           out.write("                                                <td>");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${E.positionName}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-          out.write("</td>\n");
-          out.write("                                                <td>");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${E.startDate}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-          out.write("</td>              \n");
-          out.write("                                                <td><a href=\"detail?id=");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${E.id}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-          out.write("\">\n");
-          out.write("                                                        <i class=\"fa fa-eye\"></i>\n");
-          out.write("                                                    </a> \n");
-          out.write("                                                    <a href=\"update?id=");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${E.id}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-          out.write("\">\n");
-          out.write("                                                        <i class=\"fa fa-edit\"></i>\n");
-          out.write("                                                    </a> \n");
-          out.write("                                                    <a href=\"delete?id=");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${E.id}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-          out.write("\">\n");
-          out.write("                                                        <i class=\"fa fa-trash\"></i>\n");
-          out.write("                                                    </a>\n");
-          out.write("                                                </td>\n");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${E.date}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("</td>          \n");
           out.write("                                            </tr>\n");
           out.write("                                        ");
           int evalDoAfterBody = _jspx_th_c_forEach_0.doAfterBody();
@@ -380,6 +372,45 @@ public final class table_jsp extends org.apache.jasper.runtime.HttpJspBase
     } finally {
       _jspx_th_c_forEach_0.doFinally();
       _jspx_tagPool_c_forEach_var_items.reuse(_jspx_th_c_forEach_0);
+    }
+    return false;
+  }
+
+  private boolean _jspx_meth_c_forEach_1(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:forEach
+    org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_forEach_1 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _jspx_tagPool_c_forEach_var_items.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
+    _jspx_th_c_forEach_1.setPageContext(_jspx_page_context);
+    _jspx_th_c_forEach_1.setParent(null);
+    _jspx_th_c_forEach_1.setItems((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${listEmployees}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
+    _jspx_th_c_forEach_1.setVar("E");
+    int[] _jspx_push_body_count_c_forEach_1 = new int[] { 0 };
+    try {
+      int _jspx_eval_c_forEach_1 = _jspx_th_c_forEach_1.doStartTag();
+      if (_jspx_eval_c_forEach_1 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+        do {
+          out.write(" \n");
+          out.write("                                            <tr>\n");
+          out.write("\n");
+          out.write("                                            </tr>\n");
+          out.write("                                        ");
+          int evalDoAfterBody = _jspx_th_c_forEach_1.doAfterBody();
+          if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+            break;
+        } while (true);
+      }
+      if (_jspx_th_c_forEach_1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+        return true;
+      }
+    } catch (Throwable _jspx_exception) {
+      while (_jspx_push_body_count_c_forEach_1[0]-- > 0)
+        out = _jspx_page_context.popBody();
+      _jspx_th_c_forEach_1.doCatch(_jspx_exception);
+    } finally {
+      _jspx_th_c_forEach_1.doFinally();
+      _jspx_tagPool_c_forEach_var_items.reuse(_jspx_th_c_forEach_1);
     }
     return false;
   }

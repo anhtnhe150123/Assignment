@@ -72,7 +72,7 @@
 
                     </div>
                 </main>
-                <form action="create" method="POST">
+                <form action="admin/createe" method="POST">
                     <div class="container">
 
                         <h1>Create Profile</h1>

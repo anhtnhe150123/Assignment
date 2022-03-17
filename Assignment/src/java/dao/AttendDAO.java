@@ -168,4 +168,90 @@ public class AttendDAO {
         return list;
     }
 
+    public List<StartAttend> getAllStartAttend() {
+        List<StartAttend> list = new ArrayList<>();
+        try {
+            String sql = "select * from STARTATTEN\n"
+                    + "where STARTATTEN.Date = CAST(GETDATE() as date)";
+            Connection conn = new DBContext().getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                StartAttend attend = new StartAttend();
+                attend.setId(rs.getInt(1));
+                attend.setUserName(rs.getString(2));
+                attend.setStartTime(rs.getString(3));
+                attend.setDate(rs.getString(4));
+                list.add(attend);
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(AttendDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+    }
+
+    public List<EndAttend> getAllEndAttend() {
+        List<EndAttend> list = new ArrayList<>();
+        try {
+            String sql = "select * from ENDATTEN\n"
+                    + "where ENDATTEN.Date = CAST(GETDATE() as date)";
+            Connection conn = new DBContext().getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                EndAttend attend = new EndAttend();
+                attend.setId(rs.getInt(1));
+                attend.setUserName(rs.getString(2));
+                attend.setEndTime(rs.getString(3));
+                attend.setDate(rs.getString(4));
+                list.add(attend);
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(AttendDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+    }
+
+    public List<EndAttend> getAllEndAttends() {
+        List<EndAttend> list = new ArrayList<>();
+        try {
+            String sql = "SELECT username, COUNT(end_time)\n"
+                    + "FROM ENDATTEN\n"
+                    + "GROUP BY username";
+            Connection conn = new DBContext().getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                EndAttend attend = new EndAttend();
+                attend.setUserName(rs.getString(1));
+                attend.setTotal(rs.getInt(2));
+                list.add(attend);
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(AttendDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+    }
+
+    public List<StartAttend> getAllSa() {
+        List<StartAttend> list = new ArrayList<>();
+        try {
+            String sql = "SELECT username, COUNT(start_time)\n"
+                    + "FROM STARTATTEN\n"
+                    + "GROUP BY username";
+            Connection conn = new DBContext().getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                StartAttend attend = new StartAttend();
+                attend.setUserName(rs.getString(1));
+                attend.setTotal(rs.getInt(2));
+                list.add(attend);
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(AttendDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+    }
+
 }

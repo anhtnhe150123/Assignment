@@ -1,6 +1,6 @@
 <%-- 
-    Document   : dashboard
-    Created on : Mar 13, 2022, 11:36:01 PM
+    Document   : totalsta
+    Created on : Mar 18, 2022, 12:01:35 AM
     Author     : Apple
 --%>
 
@@ -17,7 +17,7 @@
         <meta name="author" content="" />
         <title>Dashboard - SB Admin</title>
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
-        <link href="${pageContext.servletContext.contextPath}/css/styles.css" rel="stylesheet" />
+        <link href="css/styles.css" rel="stylesheet" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"
         crossorigin="anonymous"></script>
     </head>
@@ -59,6 +59,19 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Dashboard
                             </a>
+                            <div class="sb-sidenav-menu-heading">Interface</div>
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages"
+                               aria-expanded="false" aria-controls="collapsePages">
+                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                                Pages
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapsePages" aria-labelledby="headingTwo"
+                                 data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="password.html">Change Password</a>
+                                </nav>
+                            </div>
                             <div class="sb-sidenav-menu-heading">Addons</div>
                             <a class="nav-link" href="table">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
@@ -72,67 +85,48 @@
                                 <div class="small">Logged in as: ${sessionScope.acc.username}</button</div>
                             </c:when>
                             <c:otherwise>
-                                <a href="login" class="btn btn-outline-primary ms-lg-2">Login</a>
                             </c:otherwise>
                         </c:choose>
                     </div>
                 </nav>
             </div>
-            <br>
-            <div id="layoutSidenav_content">
-                    <div class="container-fluid px-4">
-                        <div class="card mb-4">
-                            <div class="card-body">
-                                <table class="table caption-top">
-                                    <thead>
-                                        <tr>
-                                            <th>User name</th>
-                                            <th>Start time</th>
-                                            <th>Date</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <c:forEach items="${listSAttends}" var="S"> 
-                                            <tr>
-                                                <td>${S.userName}</td>
-                                                <td>${S.startTime}</td>
-                                                <td>${S.date}</td>          
-                                            </tr>
-                                        </c:forEach>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        <div class="card mb-4">
-                            <div class="card-body">
-                                <table class="table caption-top">
-                                    <thead>
-                                        <tr>
-                                            <th>User name</th>
-                                            <th>End time</th>
-                                            <th>Date</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <c:forEach items="${listEAttends}" var="E"> 
-                                            <tr>
-                                                <td>${E.userName}</td>
-                                                <td>${E.endTime}</td>
-                                                <td>${E.date}</td>   
-                                            </tr>
-                                        </c:forEach>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </main>
 
+
+            <div id="layoutSidenav_content">
+                <main>
+                    <div class="card mb-4" style="margin-top: 20px">
+                        <div class="card-body">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>User Name</th>
+                                        <th>Timekeeping begins</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <c:forEach items="${listSa}" var="S">
+                                        <tr>
+
+                                            <td>${S.userName}</td>
+                                            <td>${S.total}</td>
+                                        </tr>
+                                    </c:forEach>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div> 
+                </main>  
             </div>
+
         </div>
-        <script src="${pageContext.servletContext.contextPath}/js/scripts.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"></script>
+        <script src="js/scripts.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-        <script src="https:${pageContext.servletContext.contextPath}//cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
-        <script src="${pageContext.servletContext.contextPath}/js/datatables-simple-demo.js"></script>
+        <script src="assets/demo/chart-area-demo.js"></script>
+        <script src="assets/demo/chart-bar-demo.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+        <script src="js/datatables-simple-demo.js"></script>
     </body>
+
 </html>

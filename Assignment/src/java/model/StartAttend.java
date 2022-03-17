@@ -14,16 +14,17 @@ public class StartAttend {
     private String userName;
     private String startTime;
     private String date;
-            
+    private int total;
 
     public StartAttend() {
     }
 
-    public StartAttend(int id, String userName, String startTime, String date) {
+    public StartAttend(int id, String userName, String startTime, String date, int total) {
         this.id = id;
         this.userName = userName;
         this.startTime = startTime;
         this.date = date;
+        this.total = total;
     }
 
     public int getId() {
@@ -58,10 +59,18 @@ public class StartAttend {
         this.date = date;
     }
 
+    public int getTotal() {
+        return total;
+    }
+
+    public void setTotal(int total) {
+        this.total = total;
+    }
+
     @Override
     public String toString() {
-        return "StartAttend{" + "id=" + id + ", userName=" + userName + ", startTime=" + startTime + ", date=" + date + '}';
+        return "StartAttend{" + "id=" + id + ", userName=" + userName + ", startTime=" + startTime + ", date=" + date + ", total=" + total + '}';
     }
-    
+
     
 }
