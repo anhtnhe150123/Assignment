@@ -131,7 +131,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                </nav>\n");
       out.write("                            </div>\n");
       out.write("                            <div class=\"sb-sidenav-menu-heading\">Addons</div>\n");
-      out.write("                            <a class=\"nav-link\" href=\"TableController.java\">\n");
+      out.write("                            <a class=\"nav-link\" href=\"table\">\n");
       out.write("                                <div class=\"sb-nav-link-icon\"><i class=\"fas fa-table\"></i></div>\n");
       out.write("                                Tables\n");
       out.write("                            </a>\n");
@@ -189,11 +189,8 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                        </div>\n");
       out.write("                    </form>\n");
       out.write("                    <div class=\"container-fluid px-4\" style=\"text-align: right\">\n");
-      out.write("                        <a href=\"detail-start\">View details</a>\n");
+      out.write("                        <a href=\"stahis\">View details</a>\n");
       out.write("                    </div>\n");
-      out.write("                    <br>\n");
-      out.write("                    <hr>\n");
-      out.write("                    <br>\n");
       out.write("                    <form action=\"dance\" method=\"POST\">\n");
       out.write("                        <div class=\"container-fluid px-4\">\n");
       out.write("                            <div class=\"row\">\n");
@@ -230,9 +227,8 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                        </div>\n");
       out.write("                    </form>\n");
       out.write("                    <div class=\"container-fluid px-4\" style=\"text-align: right\">\n");
-      out.write("                        <a href=\"detail\">View details</a>\n");
+      out.write("                        <a href=\"endhis\">View details</a>\n");
       out.write("                    </div>\n");
-      out.write("\n");
       out.write("                    <script>\n");
       out.write("                        function date() {\n");
       out.write("\n");
@@ -253,8 +249,6 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                        }\n");
       out.write("                        ;\n");
       out.write("                    </script>\n");
-      out.write("                    <br>\n");
-      out.write("                    <hr>\n");
       out.write("                </main>  \n");
       out.write("            </div>\n");
       out.write("\n");
