@@ -63,7 +63,7 @@ public final class createUsalary_jsp extends org.apache.jasper.runtime.HttpJspBa
       out.write("<body>\n");
       out.write("    <nav class=\"sb-topnav navbar navbar-expand navbar-dark bg-dark\">\n");
       out.write("        <!-- Navbar Brand-->\n");
-      out.write("        <a class=\"navbar-brand ps-3\" href=\"index.html\">Start Bootstrap</a>\n");
+      out.write("        <a class=\"navbar-brand ps-3\" href=\"home\">Start Bootstrap</a>\n");
       out.write("        <!-- Sidebar Toggle-->\n");
       out.write("        <button class=\"btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0\" id=\"sidebarToggle\" href=\"#!\"><i\n");
       out.write("                class=\"fas fa-bars\"></i></button>\n");
@@ -149,8 +149,8 @@ public final class createUsalary_jsp extends org.apache.jasper.runtime.HttpJspBa
       out.write("                                        <label class=\"col-lg-3 control-label\">Status:</label>\n");
       out.write("                                        <div class=\"col-lg-8\">\n");
       out.write("                                            <select name=\"status\">\n");
-      out.write("                                                <option>Completed </option>\n");
       out.write("                                                <option>Not Completed </option>\n");
+      out.write("                                                <option>Completed </option>\n");
       out.write("                                            </select>\n");
       out.write("                                        </div>\n");
       out.write("                                    </div>\n");

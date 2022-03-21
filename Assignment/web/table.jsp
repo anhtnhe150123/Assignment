@@ -102,9 +102,11 @@
                         </ol>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item">
+                                <c:if test="${sessionScope.acc.getRole() eq 'ADMIN'}">
                                 <a href="create" class="btn btn-dark btn-md">
                                     <i class="fa fa-user-plus"></i> Create new Employee
                                 </a>
+                                </c:if>
                             </li>
                         </ol>
 
@@ -151,12 +153,14 @@
                                                 <td><a href="detail?id=${E.id}">
                                                         <i class="fa fa-eye"></i>
                                                     </a> 
+                                                        <c:if test="${sessionScope.acc.getRole() eq 'ADMIN'}">
                                                     <a href="update?id=${E.id}">
                                                         <i class="fa fa-edit"></i>
                                                     </a> 
                                                     <a href="delete?id=${E.id}">
                                                         <i class="fa fa-trash"></i>
                                                     </a>
+                                                        </c:if>    
                                                 </td>
                                             </tr>
                                         </c:forEach>

@@ -12,6 +12,7 @@ public final class absent_jsp extends org.apache.jasper.runtime.HttpJspBase
   private static java.util.List<String> _jspx_dependants;
 
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_forEach_var_items;
+  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_if_test;
 
   private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
 
@@ -21,10 +22,12 @@ public final class absent_jsp extends org.apache.jasper.runtime.HttpJspBase
 
   public void _jspInit() {
     _jspx_tagPool_c_forEach_var_items = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
+    _jspx_tagPool_c_if_test = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
   }
 
   public void _jspDestroy() {
     _jspx_tagPool_c_forEach_var_items.release();
+    _jspx_tagPool_c_if_test.release();
   }
 
   public void _jspService(HttpServletRequest request, HttpServletResponse response)
@@ -74,7 +77,7 @@ public final class absent_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    <body class=\"sb-nav-fixed\">\n");
       out.write("        <nav class=\"sb-topnav navbar navbar-expand navbar-dark bg-dark\">\n");
       out.write("            <!-- Navbar Brand-->\n");
-      out.write("            <a class=\"navbar-brand ps-3\" href=\"index.jsp\">Start Bootstrap</a>\n");
+      out.write("            <a class=\"navbar-brand ps-3\" href=\"home\">Start Bootstrap</a>\n");
       out.write("            <!-- Sidebar Toggle-->\n");
       out.write("            <button class=\"btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0\" id=\"sidebarToggle\" href=\"#!\"><i\n");
       out.write("                    class=\"fas fa-bars\"></i></button>\n");
@@ -104,25 +107,16 @@ public final class absent_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                    <div class=\"sb-sidenav-menu\">\n");
       out.write("                        <div class=\"nav\">\n");
       out.write("                            <div class=\"sb-sidenav-menu-heading\">Core</div>\n");
-      out.write("                            <a class=\"nav-link\" href=\"index.html\">\n");
+      out.write("                            <a class=\"nav-link\" href=\"home\">\n");
       out.write("                                <div class=\"sb-nav-link-icon\"><i class=\"fas fa-tachometer-alt\"></i></div>\n");
       out.write("                                Dashboard\n");
       out.write("                            </a>\n");
-      out.write("                            <div class=\"sb-sidenav-menu-heading\">Interface</div>\n");
-      out.write("                            <a class=\"nav-link collapsed\" href=\"#\" data-bs-toggle=\"collapse\" data-bs-target=\"#collapsePages\"\n");
-      out.write("                               aria-expanded=\"false\" aria-controls=\"collapsePages\">\n");
-      out.write("                                <div class=\"sb-nav-link-icon\"><i class=\"fas fa-book-open\"></i></div>\n");
-      out.write("                                Pages\n");
-      out.write("                                <div class=\"sb-sidenav-collapse-arrow\"><i class=\"fas fa-angle-down\"></i></div>\n");
-      out.write("                            </a>\n");
-      out.write("                            <div class=\"collapse\" id=\"collapsePages\" aria-labelledby=\"headingTwo\"\n");
-      out.write("                                 data-bs-parent=\"#sidenavAccordion\">\n");
-      out.write("                                <nav class=\"sb-sidenav-menu-nested nav\">\n");
-      out.write("                                    <a class=\"nav-link\" href=\"password.html\">Change Password</a>\n");
-      out.write("                                </nav>\n");
-      out.write("                            </div>\n");
+      out.write("                            ");
+      if (_jspx_meth_c_if_0(_jspx_page_context))
+        return;
+      out.write("\n");
       out.write("                            <div class=\"sb-sidenav-menu-heading\">Addons</div>\n");
-      out.write("                            <a class=\"nav-link\" href=\"TableController.java\">\n");
+      out.write("                            <a class=\"nav-link\" href=\"table\">\n");
       out.write("                                <div class=\"sb-nav-link-icon\"><i class=\"fas fa-table\"></i></div>\n");
       out.write("                                Tables\n");
       out.write("                            </a>\n");
@@ -163,6 +157,7 @@ public final class absent_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                            <th>Number day off</th>\n");
       out.write("                                            <th>Start</th>\n");
       out.write("                                            <th>From</th>\n");
+      out.write("                                            <th>Delete</th>\n");
       out.write("                                        </tr>\n");
       out.write("                                    </thead>\n");
       out.write("                                    <tfoot>\n");
@@ -174,6 +169,7 @@ public final class absent_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                            <th>Number day off</th>\n");
       out.write("                                            <th>Start</th>\n");
       out.write("                                            <th>From</th>\n");
+      out.write("                                            <th>Delete</th>\n");
       out.write("                                        </tr>\n");
       out.write("                                    </tfoot>\n");
       out.write("                                    <tbody>\n");
@@ -187,18 +183,6 @@ public final class absent_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                        </div>\n");
       out.write("                    </div>\n");
       out.write("                </main>\n");
-      out.write("                <footer class=\"py-4 bg-light mt-auto\">\n");
-      out.write("                    <div class=\"container-fluid px-4\">\n");
-      out.write("                        <div class=\"d-flex align-items-center justify-content-between small\">\n");
-      out.write("                            <div class=\"text-muted\">Copyright &copy; Your Website 2021</div>\n");
-      out.write("                            <div>\n");
-      out.write("                                <a href=\"#\">Privacy Policy</a>\n");
-      out.write("                                &middot;\n");
-      out.write("                                <a href=\"#\">Terms &amp; Conditions</a>\n");
-      out.write("                            </div>\n");
-      out.write("                        </div>\n");
-      out.write("                    </div>\n");
-      out.write("                </footer>\n");
       out.write("            </div>\n");
       out.write("        </div>\n");
       out.write("        <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js\" crossorigin=\"anonymous\"></script>\n");
@@ -218,6 +202,55 @@ public final class absent_jsp extends org.apache.jasper.runtime.HttpJspBase
     } finally {
       _jspxFactory.releasePageContext(_jspx_page_context);
     }
+  }
+
+  private boolean _jspx_meth_c_if_0(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:if
+    org.apache.taglibs.standard.tag.rt.core.IfTag _jspx_th_c_if_0 = (org.apache.taglibs.standard.tag.rt.core.IfTag) _jspx_tagPool_c_if_test.get(org.apache.taglibs.standard.tag.rt.core.IfTag.class);
+    _jspx_th_c_if_0.setPageContext(_jspx_page_context);
+    _jspx_th_c_if_0.setParent(null);
+    _jspx_th_c_if_0.setTest(((java.lang.Boolean) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${sessionScope.acc.getRole() eq 'ADMIN'}", java.lang.Boolean.class, (PageContext)_jspx_page_context, null)).booleanValue());
+    int _jspx_eval_c_if_0 = _jspx_th_c_if_0.doStartTag();
+    if (_jspx_eval_c_if_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+      do {
+        out.write("\n");
+        out.write("                            <div class=\"sb-sidenav-menu-heading\">Interface</div>\n");
+        out.write("                            <a class=\"nav-link collapsed\" href=\"#\" data-bs-toggle=\"collapse\" data-bs-target=\"#collapsePages\"\n");
+        out.write("                               aria-expanded=\"false\" aria-controls=\"collapsePages\">\n");
+        out.write("                                <div class=\"sb-nav-link-icon\"><i class=\"fas fa-book-open\"></i></div>\n");
+        out.write("                                ADMIN\n");
+        out.write("                                <div class=\"sb-sidenav-collapse-arrow\"><i class=\"fas fa-angle-down\"></i></div>\n");
+        out.write("                            </a>\n");
+        out.write("                            <div class=\"collapse\" id=\"collapsePages\" aria-labelledby=\"headingTwo\"\n");
+        out.write("                                 data-bs-parent=\"#sidenavAccordion\">\n");
+        out.write("                                <nav class=\"sb-sidenav-menu-nested nav\">\n");
+        out.write("                                    <a class=\"nav-link\" href=\"abhome\">Add permission</a>\n");
+        out.write("                                </nav>\n");
+        out.write("                                <nav class=\"sb-sidenav-menu-nested nav\">\n");
+        out.write("                                    <a class=\"nav-link\" href=\"usahome\">Salary advance</a>\n");
+        out.write("                                </nav>\n");
+        out.write("                                <nav class=\"sb-sidenav-menu-nested nav\">\n");
+        out.write("                                    <a class=\"nav-link\" href=\"totalsta\">Total Start time</a>\n");
+        out.write("                                </nav>\n");
+        out.write("                                <nav class=\"sb-sidenav-menu-nested nav\">\n");
+        out.write("                                    <a class=\"nav-link\" href=\"toend\">Total End time</a>\n");
+        out.write("                                </nav>\n");
+        out.write("                            </div>\n");
+        out.write("                            ");
+        int evalDoAfterBody = _jspx_th_c_if_0.doAfterBody();
+        if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+          break;
+      } while (true);
+    }
+    if (_jspx_th_c_if_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_c_if_test.reuse(_jspx_th_c_if_0);
+      return true;
+    }
+    _jspx_tagPool_c_if_test.reuse(_jspx_th_c_if_0);
+    return false;
   }
 
   private boolean _jspx_meth_c_forEach_0(PageContext _jspx_page_context)
@@ -244,7 +277,7 @@ public final class absent_jsp extends org.apache.jasper.runtime.HttpJspBase
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${I.imgUrl}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("\" width=\"100\"></td>\n");
           out.write("                                                <td>");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${I.em_id}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${I.id}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("</td>\n");
           out.write("                                                <td>");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${I.fullName}", java.lang.String.class, (PageContext)_jspx_page_context, null));
@@ -259,7 +292,7 @@ public final class absent_jsp extends org.apache.jasper.runtime.HttpJspBase
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${I.end}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("</td>\n");
           out.write("                                                <td> \n");
-          out.write("                                                    <a href=\"delete?id=");
+          out.write("                                                    <a href=\"deleabs?id=");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${I.id}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("\">\n");
           out.write("                                                        <i class=\"fa fa-trash\"></i>\n");
