@@ -26,7 +26,7 @@
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->
-            <a class="navbar-brand ps-3" href="index.jsp">Start Bootstrap</a>
+            <a class="navbar-brand ps-3" href="home">Start Bootstrap</a>
             <!-- Sidebar Toggle-->
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i
                     class="fas fa-bars"></i></button>
@@ -56,25 +56,36 @@
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             <div class="sb-sidenav-menu-heading">Core</div>
-                            <a class="nav-link" href="index.html">
+                            <a class="nav-link" href="home">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Dashboard
                             </a>
-                            <div class="sb-sidenav-menu-heading">Interface</div>
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages"
-                               aria-expanded="false" aria-controls="collapsePages">
-                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                                Pages
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-                            <div class="collapse" id="collapsePages" aria-labelledby="headingTwo"
-                                 data-bs-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="password.html">Change Password</a>
-                                </nav>
-                            </div>
+                            <c:if test="${sessionScope.acc.getRole() eq 'ADMIN'}">
+                                <div class="sb-sidenav-menu-heading">Interface</div>
+                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages"
+                                   aria-expanded="false" aria-controls="collapsePages">
+                                    <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                                    ADMIN
+                                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                </a>
+                                <div class="collapse" id="collapsePages" aria-labelledby="headingTwo"
+                                     data-bs-parent="#sidenavAccordion">
+                                    <nav class="sb-sidenav-menu-nested nav">
+                                        <a class="nav-link" href="abhome">Add permission</a>
+                                    </nav>
+                                    <nav class="sb-sidenav-menu-nested nav">
+                                        <a class="nav-link" href="usahome">Salary advance</a>
+                                    </nav>
+                                    <nav class="sb-sidenav-menu-nested nav">
+                                        <a class="nav-link" href="totalsta">Total Start time</a>
+                                    </nav>
+                                    <nav class="sb-sidenav-menu-nested nav">
+                                        <a class="nav-link" href="toend">Total End time</a>
+                                    </nav>
+                                </div>
+                            </c:if>
                             <div class="sb-sidenav-menu-heading">Addons</div>
-                            <a class="nav-link" href="TableController.java">
+                            <a class="nav-link" href="table">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 Tables
                             </a>
@@ -103,9 +114,9 @@
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item">
                                 <c:if test="${sessionScope.acc.getRole() eq 'ADMIN'}">
-                                <a href="create" class="btn btn-dark btn-md">
-                                    <i class="fa fa-user-plus"></i> Create new Employee
-                                </a>
+                                    <a href="create" class="btn btn-dark btn-md">
+                                        <i class="fa fa-user-plus"></i> Create new Employee
+                                    </a>
                                 </c:if>
                             </li>
                         </ol>
@@ -153,14 +164,14 @@
                                                 <td><a href="detail?id=${E.id}">
                                                         <i class="fa fa-eye"></i>
                                                     </a> 
-                                                        <c:if test="${sessionScope.acc.getRole() eq 'ADMIN'}">
-                                                    <a href="update?id=${E.id}">
-                                                        <i class="fa fa-edit"></i>
-                                                    </a> 
-                                                    <a href="delete?id=${E.id}">
-                                                        <i class="fa fa-trash"></i>
-                                                    </a>
-                                                        </c:if>    
+                                                    <c:if test="${sessionScope.acc.getRole() eq 'ADMIN'}">
+                                                        <a href="update?id=${E.id}">
+                                                            <i class="fa fa-edit"></i>
+                                                        </a> 
+                                                            <a href="delete?id=${E.id}" onclick="return confirm('Are you sure you want to delete this item?')">
+                                                            <i class="fa fa-trash"></i>
+                                                        </a>
+                                                    </c:if>    
                                                 </td>
                                             </tr>
                                         </c:forEach>
@@ -170,12 +181,21 @@
                         </div>
                     </div>
                 </main>
-                
+
             </div>
         </div>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        <script src="js/scripts.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
-        <script src="js/datatables-simple-demo.js"></script>
-    </body>
+
+    </body>   
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="js/scripts.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+    <script src="js/datatables-simple-demo.js"></script>
+<!--   <script>
+        function showMess(id){
+            var option = confirm('Really want to delete ???');
+            if(option === true){
+                window.location.href = 'delete?id='+id;
+            } 
+        }   
+    </script>-->
 </html>

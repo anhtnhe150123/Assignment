@@ -81,7 +81,7 @@ public class EmployeeDAO {
         }
     }
 
-    public static void deleteInEmploy(String id) {
+    public void deleteInEmploy(String id) {
         try {
             String sql = "DELETE FROM [EMPLOYEE]\n"
                     + "      WHERE em_id = ?";

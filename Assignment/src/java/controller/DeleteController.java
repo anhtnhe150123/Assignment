@@ -5,7 +5,6 @@
  */
 package controller;
 
-
 import dao.EmployeeDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -33,10 +32,16 @@ public class DeleteController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            String id= request.getParameter("id");
-            EmployeeDAO employeeDAO = new EmployeeDAO();
-            employeeDAO.deleteInEmploy(id);
-            response.sendRedirect("table");
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet ListController</title>");
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet ListController at " + request.getContextPath() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
         }
     }
 
@@ -52,7 +57,10 @@ public class DeleteController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        String id = request.getParameter("id");
+        EmployeeDAO employeeDAO = new EmployeeDAO();
+        employeeDAO.deleteInEmploy(id);
+        response.sendRedirect("table");
     }
 
     /**
